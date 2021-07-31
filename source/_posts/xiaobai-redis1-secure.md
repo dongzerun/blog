@@ -134,7 +134,8 @@ ip addr
 ```
 
 **另外经过测试，ubuntu 服务器对 crontab 文件有权限校验，攻击会失败，并报错**
-```Feb  5 13:47:01 ubuntu2 cron[754]: (root) INSECURE MODE (mode 0600 expected) (crontabs/root)
+```
+Feb  5 13:47:01 ubuntu2 cron[754]: (root) INSECURE MODE (mode 0600 expected) (crontabs/root)
 ```
 ### 漏洞修复
 其实漏洞修复也很简单，整体来说这几点也适用于其它服务
