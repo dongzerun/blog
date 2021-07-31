@@ -1,11 +1,11 @@
 ---
 title: 你真的了解泛型嘛
 ---
+本文原创首发于公众号**董泽润的技术笔记**，转载请保留作者
+
 [泛型 Generic Programming](https://zh.wikipedia.org/wiki/%E6%B3%9B%E5%9E%8B%E7%BC%96%E7%A8%8B, "泛型程序设计") 通常指**允许程序员在强类型程序设计语言中，编写代码时使用一些以后才指定的类型，在实例化时作为参数指明这些类型，即类型参数化**
 
 首先我们不是科班讨论学术，有些概念比较模糊也正常，本文讨论的内容意在给大家提供全局的视野看待`泛型 Generic`, 大致了解主流语言的实现
-
-golang-generic.gif
 
 泛型会提供哪些便利呢？上面的动图非常经典，比如 `min` 函数，如果没有泛型，需要针对 int, float, string 分别写出不同的特定实现，代码非常冗余。本文会讨论下为什么 go 需要泛型以及 [go2 泛型的 proposal](https://go.googlesource.com/proposal/+/refs/heads/master/design/43651-type-parameters.md, "go2 泛型最终提案")
 ### CPP 模板
@@ -327,3 +327,5 @@ type StringableSignedInteger interface {
 写文章不容易，如果对大家有所帮助和启发，请大家帮忙点击`在看`，`点赞`，`分享` 三连
 
 关于 `泛型` 大家有什么看法，欢迎留言一起讨论，大牛多留言 ^_^
+
+![](https://gitee.com/dongzerun/images/raw/master/img/dongzerun-weixin-code.png)
