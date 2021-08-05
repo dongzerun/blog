@@ -1,3 +1,7 @@
+---
+title: int make 居然不是关键字？
+---
+
 这是一个小白问题，有多少人知道 `int` 居然不是关键字？`make` 也不是关键字？
 
 我们知道每种语言都有关键字和保留字的，而 go 以[关键字](https://golang.org/ref/spec#Keywords)少著称，只有25个
