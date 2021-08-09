@@ -79,8 +79,8 @@ donate:
   paypal_url: ## Paypal URL, e.g. https://www.paypal.me/tufu9441
 post_copyright:
   enable: false ## If you want to display the copyright info after each post, please set the value to true and fill the following items on your need.
-  author: ## Your author name, e.g. tufu9441
-  copyright_text: ## Your copyright text, e.g. The author owns the copyright, please indicate the source reproduced.
+  author: 董泽润 ## Your author name, e.g. tufu9441
+  copyright_text: 版本归董泽润所有，转载请附带原文链接，谢谢 ## Your copyright text, e.g. The author owns the copyright, please indicate the source reproduced.
 love: false ## If you want the love to appear when you click anywhere, set the value to true.
 plantuml: ## Using PlantUML to generate UML diagram, must install hexo-filter-plantuml (https://github.com/miao1007/hexo-filter-plantuml).
   render: "PlantUMLServer" ## Local or PlantUMLServer.
@@ -137,6 +137,12 @@ links:
     url: https://juejin.cn/user/1662117314304733/activities
   - title: Mohuishou
     url: https://lailin.xyz/
+  - title: Tangwz 的博客
+    url: https://tangwz.com/
+  - title: kakus 的博客
+    url: https://www.likakuli.com/
+  - title: 吴亲强的深夜食堂
+    url: https://www.syst.top/
 
 timeline:
   - num: 1

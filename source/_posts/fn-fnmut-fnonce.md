@@ -1,5 +1,6 @@
 ---
 title: Rust Fn FnMut FnOnce 傻傻分不清
+categories: rust
 ---
 
 上周文享了[闭包你了解底层实现嘛？](https://mp.weixin.qq.com/s/c1DyCemMTRfPjCsA5BBDTg) 我们要记住，**闭包是由函数和与其相关的引用环境组合而成的实体**

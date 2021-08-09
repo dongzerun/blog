@@ -1,5 +1,6 @@
 ---
 title: 你真的了解泛型嘛
+categories: go
 ---
 
 [泛型 Generic Programming](https://zh.wikipedia.org/wiki/%E6%B3%9B%E5%9E%8B%E7%BC%96%E7%A8%8B, "泛型程序设计") 通常指**允许程序员在强类型程序设计语言中，编写代码时使用一些以后才指定的类型，在实例化时作为参数指明这些类型，即类型参数化**

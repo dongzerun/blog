@@ -4,10 +4,10 @@
 
 # Site
 title: IT技术分享笔记
-subtitle: ''
+subtitle: 'IT 老兵，做过 SRE, DBA, 业务开发，基础开发，长期分享干货，欢迎订阅我的公众号：董泽润的技术笔记'
 description: ''
 keywords:
-author: John Doe
+author: Zerun Done
 language: en
 timezone: ''
 
@@ -46,7 +46,7 @@ future: true
 highlight:
   enable: true
   line_number: true
-  auto_detect: false
+  auto_detect: true
   tab_replace: ''
   wrap: true
   hljs: false
