@@ -1,6 +1,7 @@
 ---
 title: int make 居然不是关键字？
 categories: go
+toc: true
 ---
 
 这是一个小白问题，有多少人知道 `int` 居然不是关键字？`make` 也不是关键字？

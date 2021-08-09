@@ -4,16 +4,16 @@
 
 # Site
 title: IT技术分享笔记
-subtitle: 'IT 老兵，做过 SRE, DBA, 业务开发，基础开发，长期分享干货，欢迎订阅我的公众号：董泽润的技术笔记'
+subtitle: '作者董泽润，做过 SRE, DBA, 业务开发，基础开发，长期分享干货，欢迎订阅我的公众号：董泽润的技术笔记'
 description: ''
 keywords:
-author: Zerun Done
-language: en
+author: Zerun Dong
+language: cn
 timezone: ''
 
 # URL
 ## Set your site url here. For example, if you use GitHub Page, set url as 'https://username.github.io/project'
-url: http://mytechshares.com
+url: https://mytechshares.com
 permalink: :year/:month/:day/:title/
 permalink_defaults:
 pretty_urls:

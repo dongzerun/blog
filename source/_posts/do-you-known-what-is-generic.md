@@ -1,13 +1,14 @@
 ---
 title: 你真的了解泛型嘛
 categories: go
+toc: true
 ---
 
-[泛型 Generic Programming](https://zh.wikipedia.org/wiki/%E6%B3%9B%E5%9E%8B%E7%BC%96%E7%A8%8B, "泛型程序设计") 通常指**允许程序员在强类型程序设计语言中，编写代码时使用一些以后才指定的类型，在实例化时作为参数指明这些类型，即类型参数化**
+[泛型 Generic Programming](https://zh.wikipedia.org/wiki/%E6%B3%9B%E5%9E%8B%E7%BC%96%E7%A8%8B) 通常指**允许程序员在强类型程序设计语言中，编写代码时使用一些以后才指定的类型，在实例化时作为参数指明这些类型，即类型参数化**
 
 首先我们不是科班讨论学术，有些概念比较模糊也正常，本文讨论的内容意在给大家提供全局的视野看待`泛型 Generic`, 大致了解主流语言的实现
 
-泛型会提供哪些便利呢？上面的动图非常经典，比如 `min` 函数，如果没有泛型，需要针对 int, float, string 分别写出不同的特定实现，代码非常冗余。本文会讨论下为什么 go 需要泛型以及 [go2 泛型的 proposal](https://go.googlesource.com/proposal/+/refs/heads/master/design/43651-type-parameters.md, "go2 泛型最终提案")
+泛型会提供哪些便利呢？上面的动图非常经典，比如 `min` 函数，如果没有泛型，需要针对 int, float, string 分别写出不同的特定实现，代码非常冗余。本文会讨论下为什么 go 需要泛型以及 [go2 泛型的 proposal](https://go.googlesource.com/proposal/+/refs/heads/master/design/43651-type-parameters.md)
 ### CPP 模板
 ```c++
 #include <iostream>
@@ -98,7 +99,7 @@ typedef struct dict {
     unsigned long iterators; /* number of iterators currently running */
 } dict;
 ```
-上面的代码来自 [redis dict](https://github.com/redis/redis/blob/unstable/src/dict.h#L61, "redis disct"), 字典是泛型的，value 可以是任意类型，只要实现了 `dictType` 定义的函数指针。内核里面也有大量类似实现，非常通用
+上面的代码来自 [redis dict](https://github.com/redis/redis/blob/unstable/src/dict.h#L61), 字典是泛型的，value 可以是任意类型，只要实现了 `dictType` 定义的函数指针。内核里面也有大量类似实现，非常通用
 
 ### Rust 实现
 Rust 泛型也同样编译期单态化，运行时没有开销
@@ -115,11 +116,11 @@ impl <A, D> MyTrait<A, D> for YourType where
     
 }
 ```
-但假如需要满足多个约束的时候，就要使用 [where](https://rustwiki.org/zh-CN/rust-by-example/generics/where.html, "rust where") 关键字
+但假如需要满足多个约束的时候，就要使用 [where](https://rustwiki.org/zh-CN/rust-by-example/generics/where.html) 关键字
 
 **Rust 很多时候难懂，就是因为叠加了泛型，生命周期，所有权，还有很多的 wrapper, 别说写了，读都读不懂**
 ### Java 版本
-Java 在 1.5 版本引入了泛型，它的泛型是用类型擦除实现的。Java 的泛型只是在编译期间用于检查类型的正确，为了保证与旧版本 JVM 的兼容，类型擦除会删除泛型的相关信息，导致其在运行时不可用。关于这块可以参考 [大神R大的回答](https://www.zhihu.com/question/28665443/answer/118148143, "Java 不能实现真正泛型的原因是什么？"), 早就有类似 cpp 实现，只是涉及兼容上的取舍，不得不这么做
+Java 在 1.5 版本引入了泛型，它的泛型是用类型擦除实现的。Java 的泛型只是在编译期间用于检查类型的正确，为了保证与旧版本 JVM 的兼容，类型擦除会删除泛型的相关信息，导致其在运行时不可用。关于这块可以参考 [大神R大的回答](https://www.zhihu.com/question/28665443/answer/118148143), 早就有类似 cpp 实现，只是涉及兼容上的取舍，不得不这么做
 
 编译器会插入额外的类型转换指令，与 C 语言和 C++ 在运行前就已经实现或者生成代码相比，Java 类型的装箱和拆箱会降低程序的执行效率。非 Java 党就不写太多了
 ### Go 为什么需要泛型
@@ -141,7 +142,7 @@ func sort(arr []interface{})
 在 go 中 `[]interface{}` 类型是 slice 不是 `interface{}`, go 中对比接口相等时，是判断 itab 中 type 和 data 需要都一致。换句话说，不允许类型的协变(没其它语言背景的不必纠结概念，在 Go2 中也不打算支持协变和逆变)
 
 ### Go2 泛型
-泛型讨论了很久，参见 [generic programming facilities](https://github.com/golang/go/issues/15292, "generic programming facilities"), [Why Generics](https://blog.golang.org/why-generics#TOC_1., "Why Generics"), [Next Step](https://blog.golang.org/generics-next-step, "generics-next-step"), 以及[官方 proposal](https://go.googlesource.com/proposal/+/refs/heads/master/design/43651-type-parameters.md, "泛型 官方 proposal"), 这是最终版，语法上不会再改变
+泛型讨论了很久，参见 [generic programming facilities](https://github.com/golang/go/issues/15292), [Why Generics](https://blog.golang.org/why-generics#TOC_1.), [Next Step](https://blog.golang.org/generics-next-step), 以及[官方 proposal](https://go.googlesource.com/proposal/+/refs/heads/master/design/43651-type-parameters.md), 这是最终版，语法上不会再改变
 
 #### 1.Multiple type parameters
 ```go
@@ -305,7 +306,7 @@ type StringableSignedInteger interface {
 
 问题是 `int` 这些都没有 string 方法，所以上面约束其实是 impossible 的，只是举例子说明如何使用
 #### 7.未实现部份
-官方还列举了很多 [omissions](https://go.googlesource.com/proposal/+/refs/heads/master/design/43651-type-parameters.md#omissions, "omissions") 未实现的点
+官方还列举了很多 [omissions](https://go.googlesource.com/proposal/+/refs/heads/master/design/43651-type-parameters.md#omissions) 未实现的点
 
 比如不支持：特化，元编程(cpp 玩烂了)，curry 柯立化等等，感兴趣直接看官网好了
 ### 泛型代价
@@ -320,7 +321,7 @@ type StringableSignedInteger interface {
 
 支持泛型也会让 go 很好的处理数据，要是再搞个分代 GC, 是不是可以造大数据的轮子了^^
 ### 小结
-引用[曹大](https://xargin.com/why-do-we-need-generics/, "why-do-we-need-generics")的一句话：敏捷大师们其实非常双标，他们给出的方法论也不一定靠谱，反正成功了就是大师方法得当，失败了就是我们执行不力没有学到精髓。正着说反着说都有道理。
+引用[曹大](https://xargin.com/why-do-we-need-generics/)的一句话：敏捷大师们其实非常双标，他们给出的方法论也不一定靠谱，反正成功了就是大师方法得当，失败了就是我们执行不力没有学到精髓。正着说反着说都有道理。
 
 再看看现在的 Go 社区，buzzwords 也很多，**如果一个特性大师不想做，那就是 less is more. 如果一个特性大师想做，那就是 orthogonal, 非常客观**
 

@@ -1,6 +1,7 @@
 ---
 title: 小白的 redis 1 安全漏洞
 categories: redis
+toc: true
 ---
 
 大概在 2011 年第一次听说 redis, 由于其丰富的数据结构，高性能，经过几年的发展 redis 己经成了构建高并发服务的标配。吐糟一下 aws redis 真贵...
