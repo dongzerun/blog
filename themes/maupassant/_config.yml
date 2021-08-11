@@ -134,7 +134,7 @@ links:
   - title: 五分选手
     url: https://halfrost.com/
   - title: Golang 梦工厂
-    url: https://juejin.cn/user/1662117314304733/activities
+    url: https://asong.cloud/
   - title: Mohuishou
     url: https://lailin.xyz/
   - title: Tangwz 的博客
@@ -145,8 +145,10 @@ links:
     url: https://www.syst.top/
   - title: 欧长坤的博客
     url: https://blog.changkun.de/
-  - title: PYTHON爬虫与数据挖掘
+  - title: 爬虫与数据挖掘
     url: http://pdcfighting.com/
+  - title: 董泽润的技术笔记
+    url: https://mytechshares.com/
 
 timeline:
   - num: 1
