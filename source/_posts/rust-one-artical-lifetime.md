@@ -54,7 +54,7 @@ fn longest(x: &str, y: &str) -> &str {
 ```
 来看一个需要指定 lifetimes 的例子，`longest` 返回字符串最长的引用，编译时报错
 
-![](https://gitee.com/dongzerun/images/raw/master/img/longest-error.png)
+![](https://gitee.com/dongzerun/images/raw/master/img/longest-error2.jpg)
 
 编译器蒙逼了，他不知道函数返回的引用到底是哪一个，需要指定生命周期。并且很贴心的给了提示 
 ```rust
@@ -209,7 +209,7 @@ impl<'a> ImportantExcerpt<'a> {
    |this parameter and the return type are declared with different lifetimes...
 ...
 12 |announcement
-   |         ^^^^^^^^^^^^ ...but data from `announcement` is returned here
+   |         ^^^^^^^^^^^^ ...but data from `announcement` is returned heres
 ```
 这时需要显示的指定来协助编译器来完成检查，指定 lifetime. 另外涉及子类型，协变，逆变时生命周期会更复杂一些，感兴趣的可以参考 [nomicon](https://doc.rust-lang.org/nomicon/subtyping.html#subtyping-and-variance, "subtyping-and-variance") 官方文档
 
