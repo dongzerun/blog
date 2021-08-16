@@ -1,6 +1,5 @@
 ---
 title: Rust 居然允许变量 shadow
-categories: rust
 toc: true
 ---
 

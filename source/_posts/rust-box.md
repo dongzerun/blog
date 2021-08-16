@@ -1,6 +1,5 @@
 ---
 title: 揭开智能指针 Box 的神秘面纱
-categories: rust
 toc: true
 ---
 

@@ -1,6 +1,5 @@
 ---
 title: Rust 让人头大的引用与借用
-categories: rust
 toc: true
 ---
 

@@ -1,6 +1,5 @@
 ---
 title: Rust Fn FnMut FnOnce 傻傻分不清
-categories: rust
 toc: true
 ---
 

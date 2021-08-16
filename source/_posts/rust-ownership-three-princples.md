@@ -1,6 +1,5 @@
 ---
 title: Rust ownership 三原则
-categories: rust
 toc: true
 ---
 

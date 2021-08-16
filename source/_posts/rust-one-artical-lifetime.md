@@ -1,6 +1,5 @@
 ---
 title: 一文了解 rust lifetime
-categories: rust
 toc: true
 ---
 

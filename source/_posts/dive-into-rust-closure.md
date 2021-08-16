@@ -1,6 +1,5 @@
 ---
 title: Rust 深入浅出闭包
-categories: rust
 toc: true
 ---
 
