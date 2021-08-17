@@ -276,7 +276,30 @@ struct ArcInner<T: ?Sized> {
     data: T,
 }
 ```
-而 `Arc` 里面的计数是用 atomic 来保证原子的，所以是并发字全。还有很多源码实现，理解有点难，多 google 查查，再读读注释，感兴趣自行查看
+而 `Arc` 里面的计数是用 atomic 来保证原子的，所以是并发字全。
+```rust
+#[stable(feature = "rc_weak", since = "1.4.0")]
+pub struct Weak<T: ?Sized> {
+    // This is a `NonNull` to allow optimizing the size of this type in enums,
+    // but it is not necessarily a valid pointer.
+    // `Weak::new` sets this to `usize::MAX` so that it doesn’t need
+    // to allocate space on the heap.  That's not a value a real pointer
+    // will ever have because RcBox has alignment at least 2.
+    // This is only possible when `T: Sized`; unsized `T` never dangle.
+    ptr: NonNull<RcBox<T>>,
+}
+
+#[stable(feature = "rc_weak", since = "1.4.0")]
+pub fn downgrade(this: &Self) -> Weak<T> {
+    this.inner().inc_weak();
+    // Make sure we do not create a dangling Weak
+    debug_assert!(!is_dangling(this.ptr.as_ptr()));
+    Weak { ptr: this.ptr }
+}s
+```
+`Rc::downgrade` 生成 `Weak` 逻辑也比较简单，`inc_weak` 增加 weak ref count 弱引用计数，然后返回 `Weak`
+
+还有很多源码实现，理解有点难，多 google 查查，再读读注释，感兴趣自行查看
 ### 小结
 本文先分享这些，写文章不容易，如果对大家有所帮助和启发，请大家帮忙点击`在看`，`点赞`，`分享` 三连
 

@@ -4,6 +4,8 @@ categories: k8s
 toc: true
 ---
 
+![](https://gitee.com/dongzerun/images/raw/master/img/load-balancing.png)
+
 在计算中，[Load Balance](https://en.wikipedia.org/wiki/Load_balancing_(computing), "Load Balance From wikipedia") 是指在一组资源（计算单元）上分配一组任务的过程，目的是使其整体处理更有效率。负载均衡可以优化响应时间，避免一些计算节点不均衡地超载，而其他计算节点则被闲置
 
 同时，`负载均衡`, `反向代理`, `网关` 这些模块功能也比较相似，所以本文宽泛的将 LB 代指所有提供类似功能的开软软件以及设备

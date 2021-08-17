@@ -4,6 +4,8 @@ categories: linux
 toc: true
 ---
 
+![](https://gitee.com/dongzerun/images/raw/master/img/taejune-kim-a-warm-day-taejune-kim.jpg)
+
 前几天帮同事看问题时，意外的发现了时钟源影响性能的 case, 比较典型，记录一下。网上也有人遇到过，参考虾皮的[[Go] Time.Now函数CPU使用率异常](https://mp.weixin.qq.com/s/D2ulLXDFpi0FwVRwSQJ0nA, "[Go] Time.Now函数CPU使用率异常") 和 [Two frequently used system calls are ~77% slower on AWS EC2](https://blog.packagecloud.io/eng/2017/03/08/system-calls-are-much-slower-on-ec2/, "Two frequently used system calls are ~77% slower on AWS EC2")
 
 本质都是 fallback 系统调用，所以慢了，但是触发这个条件的原因不太一样。我最后的分析也可能理解有误，欢迎一起讨论并指正。

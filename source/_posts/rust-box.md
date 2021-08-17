@@ -4,6 +4,8 @@ categories: rust
 toc: true
 ---
 
+![](https://gitee.com/dongzerun/images/raw/master/img/rust-cover-white.jpg)
+
 熟悉 c++ 的肯定知道 `shared_ptr`, `unique_ptr`, 而 Rust 也有智能指针 `Box`, `Rc`, `Arc`, `RefCell` 等等，本文分享 `Box` 底层实现
 
 `Box<T>` 会在堆上分配空间，存储 T 值，并返回对应的指针。同时 `Box` 也实现了 trait `Deref` 解引用和 `Drop` 析构，当 `Box` 离开作用域时自动释放空间

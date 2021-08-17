@@ -4,6 +4,8 @@ categories: go
 toc: true
 ---
 
+![](https://gitee.com/dongzerun/images/raw/master/img/jit-cover.jpg)
+
 原文作者是 **Sidhartha Mani** 首发于 [Medium](https://medium.com/kokster/writing-a-jit-compiler-in-golang-964b61295f),曾由 [jiangwei161002010](https://github.com/jiangwei161002010) 翻译后发布在 [Go 语言中文网](https://studygolang.com/articles/12730, "Go 语言中文网")
 
 ---

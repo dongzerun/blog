@@ -4,6 +4,8 @@ categories: rust
 toc: true
 ---
 
+![](https://gitee.com/dongzerun/images/raw/master/img/rust-cover.jpg)
+
 在计算机中，闭包 `Closure`, 又称词法闭包 `Lexical Closure` 或函数闭包 `function closures`, 是**引用了自由变量的函数**
 
 被引用的自由变量将和函数一同存在，即使已经离开了创造它的环境也不例外。换句话说，**闭包是由函数和与其相关的引用环境组合而成的实体**

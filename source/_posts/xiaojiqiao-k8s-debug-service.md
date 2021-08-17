@@ -4,6 +4,8 @@ categories: 小技巧
 toc: true
 ---
 
+![](https://gitee.com/dongzerun/images/raw/master/img/GopherKubernetes-debug-cover.png)
+
 本文面向初次调试 k8s 服务的新手及运维，老鸟可以跳过啦~ 但也需要了解 k8s, 比如至少知道 `service`, `endpoint`, `pod`, `node` 这些基本概念
 
 前两年开始接触学习 k8s, 一直有纸上谈兵的感觉。最近恰好项目需要，服务要整体迁移到 aws k8s 平台，实践中才发现原来很多地方理解不到位

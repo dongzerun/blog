@@ -4,6 +4,8 @@ categories: 小技巧
 toc: true
 ---
 
+![](https://gitee.com/dongzerun/images/raw/master/img/systemtap.png)
+
 霸爷博客，干货满满。有两篇文章现在还记得，[《Linux下如何知道文件被哪个进程写》](http://blog.yufeng.info/archives/2581#more-2581, "Linux下如何知道文件被哪个进程写")和[《巧用Systemtap注入延迟模拟IO设备抖动》](http://blog.yufeng.info/archives/2935, "巧用Systemtap注入延迟模拟IO设备抖动")，周末突然想起来，发现能看懂了:)
 
 ### 什么是 systemtap

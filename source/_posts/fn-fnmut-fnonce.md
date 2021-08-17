@@ -4,6 +4,8 @@ categories: rust
 toc: true
 ---
 
+![](https://gitee.com/dongzerun/images/raw/master/img/rust-cover.png)
+
 上周文享了[闭包你了解底层实现嘛？](https://mp.weixin.qq.com/s/c1DyCemMTRfPjCsA5BBDTg) 我们要记住，**闭包是由函数和与其相关的引用环境组合而成的实体**
 
 同时闭包引用变量也是有优先级的：优先只读借用，然后可变借用，最后转移所有权。本篇文章看下，如何将闭包当成参数或返回值

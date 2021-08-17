@@ -4,6 +4,8 @@ categories: rust
 toc: true
 ---
 
+![](https://gitee.com/dongzerun/images/raw/master/img/go-vs-rust.jpg)
+
 本篇尽量深入浅出，不想学 `Rust` 的也可以读读，多种语言对比很有很大的收获，`Go` 再好也不是所有场景通吃^_^
 
 上周分享了[Rust Ownership 三原则](https://mp.weixin.qq.com/s/3apdPoiPWmDDU7jMRIJkrA), 要谨记这三点：

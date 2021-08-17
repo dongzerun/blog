@@ -4,6 +4,8 @@ categories: go
 toc: true
 ---
 
+![](https://gitee.com/dongzerun/images/raw/master/img/cover-gopherchina2021.jpeg)
+
 上家公司的案例。先说下使用背景，服务在每台服务器上启动 agent, 用户会在指定机器上执行任务，并将结果返回到网页上。执行任务由用户自定义脚本，一般也都是 shell 或是python，会不断的产生子进程，孙进程，直到执行完毕或是超时被 kill
 
 ### 问题

@@ -4,6 +4,8 @@ categories: go
 toc: true
 ---
 
+![](https://gitee.com/dongzerun/images/raw/master/img/tikv-flame.png)
+
 本文是在上家的 case, 以前很多人在公开大会上拿该案例做分享，所以觉得有印象的同学勿喷，虽然冷饭，但是原创
 
 有时大字很不理解的现象，明明 call RPC 时设置了超时时间 timeout, 但是 Grafna 看到 P99 latency 很高，why ???
