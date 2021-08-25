@@ -44,7 +44,7 @@ fn main() {
 ```
 有两种方式修复这个问题，let 声明时指定 `let mut i`, 但具体大的项目时，外层的变量很可能是 immutable 不可变的。这时内部可变性就派上用场了。
 
-#### 修复
+### 修复
 ```rust
 use std::cell::Cell;
 
@@ -81,7 +81,7 @@ fn main() {
     }
 ```
 最后都是把结构体字段，使用 `RefCell` 包装一下
-#### Cell
+### Cell
 ```rust
 use std::cell::Cell;
 
@@ -111,7 +111,7 @@ error[E0599]: the method `get` exists for reference `&Cell<Test>`, but its trait
 ```
 从上面可以看到 `struct Test` 默认没有实现 `Copy`, 所以不允许使用 `get`. 那有没有办法获取底层 struct 呢？可以使用 `get_mut` 返回底层数据的引用，但这就要求整个变量是 `let mut` 的，所以与使用 `Cell` 的初衷不符，所以针对 `Move` 语义的场景，rust 提供了 `RefCell`
 
-#### RefCell
+### RefCell
 与 `Cell` 不一样，我们使用 `RefCell` 一般通过 `borrow` 获取不可变借用，或是 `borrow_mut` 获取底层数据的可变借用
 ```rust
 use std::cell::{RefCell};
@@ -172,6 +172,7 @@ fn main() {
 这是[官方](https://doc.rust-lang.org/book/ch15-05-interior-mutability.html#having-multiple-owners-of-mutable-data-by-combining-rct-and-refcellt)例子，通过 `Rc`, `RefCell` 结合使用，做到共享所有权，同时又能修改 List 节点值
 
 ### 小结
+
 内部可变性提供了极大的灵活性，但是考滤到运行时开销，还是不能滥用，性能问题不大，重点是缺失了编译期的静态检查，会掩盖很多错误
 
 写文章不容易，如果对大家有所帮助和启发，请大家帮忙点击`在看`，`点赞`，`分享` 三连
