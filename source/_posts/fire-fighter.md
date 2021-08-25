@@ -4,11 +4,12 @@ categories: 服务治理
 toc: true
 ---
 
+![](https://gitee.com/dongzerun/images/raw/master/img/mie-huo-fire.jpg)
+
 换换口味今天不写纯技术文章，分享一个 high level 的话题。假如**公司或部门的微服务频繁出现故障，Boss 让你去负责稳定性建设，俗称救火队长，你会怎么做？？？**
 
 这个问题可以当做面试题，考验候选者是否有全局的视野，以及对整个技术栈的掌握情况。同时需要多维度思考，产品，工程师，服务，基础机构等等
 
-![](https://gitee.com/dongzerun/images/raw/master/img/mie-huo-fire.jpg)
 
 整体来讲和上图的灭火原理是一样，**灭明火**、**定期检查设备**、**防火演练**。稳定性建设也分为三步：**短期故障处理**、**中期构建稳定性**、**长期演练压测**
 

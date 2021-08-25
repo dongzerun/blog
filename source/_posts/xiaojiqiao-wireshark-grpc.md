@@ -4,6 +4,8 @@ categories: 小技巧
 toc: true
 ---
 
+![](https://gitee.com/dongzerun/images/raw/master/img/ent-grpc.jpg)
+
 以前用 wireshark 分析过 GRPC 流量，非常方便，年初用同样方法分析了HOL blocking 问题，感兴趣的可以看看。今天记录下全过程，分享给大家，贼好用^^
 
 ```shell

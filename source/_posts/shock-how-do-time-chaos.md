@@ -4,6 +4,8 @@ categories: k8s
 toc: true
 ---
 
+![](https://gitee.com/dongzerun/images/raw/master/img/_100925801_spacealamy.jpg)
+
 题目稍有些标题党，最近公司想用 `chaos-mesh` 对 `k8s` 做混沌测试，开始做前期的调研，发现 [pingcap](https://www.jianshu.com/p/6425050591b7, "Chaos Mesh - 让时间在容器中自由摇摆") 对时间的注入非常硬核，而且最终方案居然是实习生构思出来的 ^^
 
 TL;DR: 通过劫持 `vdso`, 将时间函数跳转到 hack 过的汇编指令来实现 `time skew`. 原理不难懂，但细节超多，参考[官方文档](https://chaos-mesh.org/docs/chaos_experiments/timechaos_experiment/#limitation, "官方文档")

@@ -4,6 +4,8 @@ categories: go
 toc: true
 ---
 
+![](https://gitee.com/dongzerun/images/raw/master/img/enable-keep-alive-apache.jpg)
+
 本文来自十年老粉`小六子`投稿，内容比较干，大家平时肯定也会遇到
 
 由于线上存在网络问题，会导致 `GRPC HOL blocking`, 于是决定把 `GRPC client`改写成 `HTTP client`

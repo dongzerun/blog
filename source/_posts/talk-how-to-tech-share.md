@@ -4,6 +4,8 @@ categories: share
 toc: true
 ---
 
+![](https://gitee.com/dongzerun/images/raw/master/img/zuimei-teacher.jpeg)
+
 最近在组织公司内部的技术分享，简单的聊聊如何写 tech slide, 以及现场 present 时要注意的地方，希望对大家能有帮助。当然个人理解，难免有错误，欢迎讨论。
 
 ### 分享的目的
