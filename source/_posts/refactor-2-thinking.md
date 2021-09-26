@@ -1,5 +1,5 @@
 ---
-title: 读重构2有感
+title: 读《重构 改善即有代码的设计2》有感
 categories: go
 toc: true
 ---
