@@ -4,7 +4,7 @@ categories: misc
 toc: true
 ---
 
-![](https://gitee.com/dongzerun/images/raw/master/img/blog-cover.jpg)
+![](https://gitee.com/dongzerun/images/raw/master/img/hexo-cover.jpg)
 
 个人 blog 欢迎访问：https://mytechshares.com/ , 内容同步自微信公众号。首先说下为什么自建 blog 站点：
 
