@@ -1,5 +1,5 @@
 ---
-title: 开通个人博客啦！附带全部 Hexo + Nginx + Git 教程
+title: 如何搭建 blog? 附带全部 Hexo + Nginx + Git 教程
 categories: misc
 toc: true
 ---
