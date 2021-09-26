@@ -209,6 +209,8 @@ root@test-hexo:~# nginx -s reload
 
 ![](https://gitee.com/dongzerun/images/raw/master/img/test-nginx-git-new.jpg)
 
+关于如何修改网站名称，自定义主题，添加友情链接等等，请网上搜索，非常简单
+
 ### SSL (optional)
 建义都加上 https, 反正 [letsencrypt](https://letsencrypt.org/zh-cn/docs/client-options/, "Letsencrypt") 也是免费的，certbot 可以自动修改我们的 nginx config file, cron 可以自动更新 ssl file 非常方便
 
