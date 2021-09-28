@@ -40,8 +40,8 @@ minivaline: ## See: https://github.com/MiniValine/MiniValine
   # More i18n info: https://github.com/MiniValine/minivaline-i18n
   lang:
 utterances: ## See: https://utteranc.es
-  enable: false ## If you want to use Utterances comment system, please set the value to true.
-  repo: ## The repository utterances will connect to, e.g. tufu9441/comments
+  enable: true ## If you want to use Utterances comment system, please set the value to true.
+  repo: dongzerun/comments-blog ## The repository utterances will connect to, e.g. tufu9441/comments
   identifier: title ## The mapping between blog posts and GitHub issues.
   theme: github-light ## Choose an Utterances theme which matches your blog.
 twikoo: ## See: https://twikoo.js.org
