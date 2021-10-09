@@ -73,6 +73,13 @@ toc: true
 
 不断重复上述步骤，最终 k2, k4, k5, k6 `select` 的数据混合进 binlog process 的 output buffer 中。**原理不难，这里有个思考题给大家，如果 `select` 语句与 `lw` 或是 `hw` 更新放到同一个事务中，处理会不会更容易？**
 
+### 其它
+一致性方面就不要想了，Eventual Consistent 的系统会有时间窗口延迟，尤其是 binlog 解析出来的日志如果要写 kafka, 应用再去订阅消费，更无法保证一致。大概率情况，每天都要重新校验一次全量数据
+
+CDC 服务也要做到高可用的，可以定期将消费的 binlog pos 同步到 zk/etcd 等外部存储，多个 CDC 服务竞争任务。如果是 MySQL 切表的话，需要 CDC 服务也参与，还要区分是否开启 GTID, 各种集群实现。一般为了避免这种情况，CDC 服务都是连接 slave 从库
+
+Schema 变更与映射要看具体 CDC 的实现，动态识别变更，自定义映射，比如 mysql 表与目标结构不一致，create_at 映射成 CreateAt 等等
+
 ### 小结
 任何技术都是在特定背景下产生的，pc 时代单体服务大行其道，流量也不大，db 就能服务所有流量，所有数据 join 就可以。移动互联网兴趣后，单体服务，单 db 性能就很差，所以需要解耦，将异构数据同步交给专用的 `CDC` 服务。当微服务兴起后，数据无法存储在单个表中，分散在不同服务，基于 db 底层技术的 `CDC` 就显得捉襟见肘，此时 `CQRS` [Command and Query Responsibility Segregation]("https://docs.microsoft.com/en-us/azure/architecture/patterns/cqrs", "CQRS") 命令查询分离走进视野，关于 CQRS, Event Sourcing 我们下一篇再介绍
 
