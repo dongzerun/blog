@@ -4,7 +4,7 @@ categories: go
 toc: true
 ---
 
-![](https://gitee.com/dongzerun/images/raw/master/img/error-cover.jpg)
+![](/images/error-cover.jpg)
 
 今天分享 go 语言 error 处理的最佳实践，了解当前 error 的缺点、妥协以及使用时注意事项。文章内容较长，干货也多，建义收藏
 
@@ -662,4 +662,4 @@ errors.Wrap(err, "failed")
 
 关于 `error` 大家有什么看法，欢迎留言一起讨论，大牛多留言 ^_^
 
-![](https://gitee.com/dongzerun/images/raw/master/img/dongzerun-weixin-code.png)
+![](/images/dongzerun-weixin-code.png)

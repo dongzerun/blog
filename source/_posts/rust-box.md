@@ -4,7 +4,7 @@ categories: rust
 toc: true
 ---
 
-![](https://gitee.com/dongzerun/images/raw/master/img/rust-cover-white.jpg)
+![](/images/rust-cover-white.jpg)
 
 熟悉 c++ 的肯定知道 `shared_ptr`, `unique_ptr`, 而 Rust 也有智能指针 `Box`, `Rc`, `Arc`, `RefCell` 等等，本文分享 `Box` 底层实现
 
@@ -135,4 +135,4 @@ fn main() {
 
 关于 `Box` 大家有什么看法，欢迎留言一起讨论，大牛多留言 ^_^
 
-![](https://gitee.com/dongzerun/images/raw/master/img/dongzerun-weixin-code.png)
+![](/images/dongzerun-weixin-code.png)

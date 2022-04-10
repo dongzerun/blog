@@ -3,7 +3,7 @@ title: 基于 nginx quic 分支体验 http3
 categories: quic
 toc: true
 ---
-![](https://gitee.com/dongzerun/images/raw/master/img/quic-cover.jpg)
+![](/images/quic-cover.jpg)
 
 去年发过文章 [HOL blocking 困扰两个月的问题](https://mp.weixin.qq.com/s/pILicxg81p3FVT07MCfJNw), http2 通过多路复用虚拟 stream 最大化的利用了 tcp 连接的性能，并且解决了七层的 HOL 问题，但是没有解决四层 tcp 的 HOL, 如果有丢包，那么同一 tcp 上的所有业务都会产生影响，QPS 高的时候非常明显
 
@@ -74,21 +74,21 @@ tcp               LISTEN              0                    128                  
 ### 开放防火墙
 注意 iptables 是否开放了 udp 443, 以及云厂商的安全组规则
 
-![](https://gitee.com/dongzerun/images/raw/master/img/udp443-aliyun.jpg)
+![](/images/udp443-aliyun.jpg)
 
 我这里需要开通阿里云的
 ### 浏览器支持
 对于 chrome 需要打开 `chrome://flags/`, 然后 enable QUIC
 
-![](https://gitee.com/dongzerun/images/raw/master/img/chrome-quic-enable.jpg)
+![](/images/chrome-quic-enable.jpg)
 ### 测试 H3
 可以通过网站 `https://http3check.net` 来测试你的 blog 是否己支持 http3, 否则可能退化到 h2 或是 h1
 
-![](https://gitee.com/dongzerun/images/raw/master/img/http3-check.jpg)
+![](/images/http3-check.jpg)
 
 最后打开 chrome 或是 firefox 测试完成 ^_^
 
-![](https://gitee.com/dongzerun/images/raw/master/img/blog-nginx-http3.jpg)
+![](/images/blog-nginx-http3.jpg)
 ### 小结
 想了解 quic 协议的可以参考 [a-quick-look-at-quic](https://blog.apnic.net/2019/03/04/a-quick-look-at-quic/, "a-quick-look-at-quic") 和 [Everything You Need to Know About QUIC and HTTP3](https://www.youtube.com/watch?v=_QQX0Ezpq8U, "Everything You Need to Know About QUIC and HTTP3")
 
@@ -98,4 +98,4 @@ tcp               LISTEN              0                    128                  
 
 关于 `HTTP3` 大家有什么看法，欢迎留言一起讨论，大牛多留言 ^_^
 
-![](https://gitee.com/dongzerun/images/raw/master/img/dongzerun-weixin-code.png)
+![](/images/dongzerun-weixin-code.png)

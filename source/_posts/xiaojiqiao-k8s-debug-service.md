@@ -4,7 +4,7 @@ categories: 小技巧
 toc: true
 ---
 
-![](https://gitee.com/dongzerun/images/raw/master/img/GopherKubernetes-debug-cover.png)
+![](/images/GopherKubernetes-debug-cover.png)
 
 本文面向初次调试 k8s 服务的新手及运维，老鸟可以跳过啦~ 但也需要了解 k8s, 比如至少知道 `service`, `endpoint`, `pod`, `node` 这些基本概念
 
@@ -12,7 +12,7 @@ toc: true
 
 **比如说如何调试 k8s 里的服务呢？** 服务对外暴露了 `service`, 要查看 endpoints(就是后端的 real server) 是否挂载成功，如果没有 endpoints 那就要用 `kubectl logs` 或是 `kubectl describe` 查看服务 pod 是否启动成功。可以参考官网[应用故障排查](https://kubernetes.io/zh/docs/tasks/debug-application-cluster/debug-application/, "应用故障排查")
 
-![](https://gitee.com/dongzerun/images/raw/master/img/service-endpoints.jpg)
+![](/images/service-endpoints.jpg)
 
 Pod 启不来的原因很多：镜像 pull 失败(墙内), 资源不足无法调度，liveness 检查失败，服务自身 panic 等等一大堆 ...
 ### 专用 pod
@@ -88,7 +88,7 @@ server: envoy
 
 理念超级棒。可以将 k8s 流量导到开发机本地，也能将本地服务暴露到 k8s 中。我们目前没有采用，现在仍然是每次修改都要 deploy 到 dev k8s 环境中
 
-![](https://gitee.com/dongzerun/images/raw/master/img/kt-connect.jpg)
+![](/images/kt-connect.jpg)
 
 上面是架构图，可以参考[云原生环境下的开发测试](https://zhuanlan.zhihu.com/p/144273459, "云原生环境下的开发测试")。没啥黑科技，就是在集群内部设置代理影子容器，负责转发流量，有时间这块再写一篇分享
 ### 小结
@@ -96,4 +96,4 @@ server: envoy
 
 [官方也有相关 blog](https://kubernetes.io/zh/docs/tasks/debug-application-cluster/debug-running-pod/, "调试运行中的 Pod"), 可以参考。关于调试 k8s 服务大家有什么看法，欢迎留言一起讨论 ^_^
 
-![](https://gitee.com/dongzerun/images/raw/master/img/dongzerun-weixin-code.png)
+![](/images/dongzerun-weixin-code.png)

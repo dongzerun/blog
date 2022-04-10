@@ -4,7 +4,7 @@ categories: go
 toc: true
 ---
 
-![](https://gitee.com/dongzerun/images/raw/master/img/cyber-security-project-failure-1280x720.jpg)
+![](/images/cyber-security-project-failure-1280x720.jpg)
 
 [Fail at Scale, Reliability in the face of rapid change](https://queue.acm.org/detail.cfm?id=2839461) 是 Facebook 2015 年发布的一篇论文，分享 Facebook 是如何看待故障，以及如何构建稳定性的。现在看论文里少了些东西，但是整体依然有参考意义
 
@@ -29,7 +29,7 @@ toc: true
 #### 3.人为错误
 论文里提到，工作日故障或错误数量，远远高于周末，尤其是圣诞节前后，基本没有发生问题
 
-![](https://gitee.com/dongzerun/images/raw/master/img/humen-error.jpg)
+![](/images/humen-error.jpg)
 
 个人感观也一样，同一到周五只要上线就有报警，周末平平安安^^
 
@@ -67,7 +67,7 @@ onNewRequest(req, queue):
 
 * Adaptive LIFO: 正常队列是 First In First Out 的，但是当业务请理慢，请求堆积时，超时的请求，用户可能己经重试了，还不如处理后入队的请求
 
-![](https://gitee.com/dongzerun/images/raw/master/img/LIFO-facebook.jpg)
+![](/images/LIFO-facebook.jpg)
 
 * Concurreny Control: 并发控制, 论文描述的其实就是 circuit breaker, 如果 inflight 请求过多，或是错误过多，会触发 Client 熔断。文章通篇没提 cb, 但是意思一样。上面提到的是 Server 做法，而 CB 是 Client 端的设置
 
@@ -100,4 +100,4 @@ DERP帮助分析手头事件的每个步骤。在这种分析的帮助下，即�
 
 关于 `稳定性` 大家有什么看法，欢迎留言一起讨论，大牛多留言 ^_^
 
-![](https://gitee.com/dongzerun/images/raw/master/img/dongzerun-weixin-code.png)
+![](/images/dongzerun-weixin-code.png)

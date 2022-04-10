@@ -4,11 +4,11 @@ categories: redis
 toc: true
 ---
 
-![](https://gitee.com/dongzerun/images/raw/master/img/LRU_cache-in-Python_Watermarked.0a0ccb7f43c1.jpg)
+![](/images/LRU_cache-in-Python_Watermarked.0a0ccb7f43c1.jpg)
 
 所有 IT 从业者都接触过缓存，一定了解基本工作原理，业界流行一句话：**缓存就是万金油，哪里有问题哪里抹一下**。那他的本质是什么呢？
 
-![](https://gitee.com/dongzerun/images/raw/master/img/cache-speed.jpg)
+![](/images/cache-speed.jpg)
 
 上图代表从 cpu 到底层硬盘不同层次，不同模块的运行速度，上层多加一层 cache, 就能解决下层的速度慢的问题，这里的慢是指两点：IO 慢和 cpu 重复计算缓存中间结果
 
@@ -57,7 +57,7 @@ int processCommand(redisClient *c) {
 
 在每次处理 client 命令时都会调用 `freeMemoryIfNeeded` 检查是否有必有驱逐某些 key, 当 redis 实际使用内存达到上限时开始淘汰。但是 redis 做的比较取巧，并没有对所有的 key 做 lru 队列，而是按照 maxmemory_samples 参数进行采样，系统默认是 5 个 key
 
-![](https://gitee.com/dongzerun/images/raw/master/img/redis-lru-appromiate.jpg)
+![](/images/redis-lru-appromiate.jpg)
 
 上面是很经典的一个图，当到达 10 个 key 时效果更接近理论上的 LRU 算法，但是 cpu 消耗会变高，所以系统默认值就够了。
 
@@ -154,7 +154,7 @@ double p = 1.0/(baseval*server.lfu_log_factor+1);
 
 这个概率算法中 lfu_log_factor 是对数底，默认是 10, 当 counter 值较小时自增的概率较大，如果 counter 较大，倾向于不做任何操作
 
-![](https://gitee.com/dongzerun/images/raw/master/img/lru-redis-counter.jpg)
+![](/images/lru-redis-counter.jpg)
 
 counter 值从 0~255 可以表示很大的访问频率，足够用了
 
@@ -196,7 +196,7 @@ hot key found with counter: 7	keyname: key50
 ### 谈谈缓存的指标
 前面提到的是 redis LFU 实现，这是集中式的缓存，我们还有很多进程的本地缓存。如何评价一个缓存实现的好坏，有好多指标，细节更重要
 
-![](https://gitee.com/dongzerun/images/raw/master/img/w-tinylfu-speed.jpg)
+![](/images/w-tinylfu-speed.jpg)
 
 * 吞吐量：常说的 QPS, 对标 bucket 实现的 hashmap 复杂度是 O(1), 缓存复杂度要高一些，还有锁竞争要处理，总之缓存库实现的效率要高
 * 缓存命中率：光有吞吐量还不够，缓存命中率也非常关键，命中率越高说明引入缓存做用越大
@@ -207,4 +207,4 @@ hot key found with counter: 7	keyname: key50
 
 关于 `淘汰算法` 大家有什么看法，欢迎留言一起讨论，大牛多留言 ^_^
 
-![](https://gitee.com/dongzerun/images/raw/master/img/dongzerun-weixin-code.png)
+![](/images/dongzerun-weixin-code.png)

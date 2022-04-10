@@ -18,7 +18,7 @@ toc: true
 ### 实现
 `JSON` 有两种表示方法：文本可读的在 mysql 中对应 `json_dom.cc`, binary 二进制表示的对应 `json_binary.cc`
 
-![](https://gitee.com/dongzerun/images/raw/master/img/json-objects.png)
+![](/images/json-objects.png)
 
 ```
 If the value is a JSON object, its binary representation will have a
@@ -47,11 +47,11 @@ MySQL 读取 json 时是 json_dom 调用 `wrapper_to_string` 方法，序列化�
 
 写入 json 时，是由 json_binary 调用 `serialize_json_value` 方法，序列化成上面图表示的 binary 数据，然后由引擎层存储成 blob 格式
 
-![](https://gitee.com/dongzerun/images/raw/master/img/wrappeertostring2.jpg)
+![](/images/wrappeertostring2.jpg)
 
 去年故障有服务端的问题，加载单条数据失败就会走动 panic, 坑人不浅。原因是 `wrapper_to_string` 遇到 json array 特别多的情况下反复 mem_realloc 创建内存空间，导致性能下降
 
-![](https://gitee.com/dongzerun/images/raw/master/img/json-binary2.jpg)
+![](/images/json-binary2.jpg)
 
 其实去年没有 fix 完整，最近发现写入也有类似问题，只不过是 `serialize_json_value` 写入引擎前 mem_realloc 耗时，这时前端页面发现写入超时了，重试继续写入 json 数据
 
@@ -94,4 +94,4 @@ Date:   Fri Apr 1 12:56:23 2016 +0200
 
 关于 `MySQL JSON` 大家有什么看法，欢迎留言一起讨论，大牛多留言 ^_^
 
-![](https://gitee.com/dongzerun/images/raw/master/img/dongzerun-weixin-code.png)
+![](/images/dongzerun-weixin-code.png)

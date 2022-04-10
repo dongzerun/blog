@@ -181,4 +181,4 @@ error: aborting due to previous error
 ### 小结
 这次分享就这些，以后面还会分享更多的内容，如果感兴趣，可以关注并点击左下角的`分享`转发哦(:
 
-![](https://gitee.com/dongzerun/images/raw/master/img/dongzerun-weixin-code.png)s
+![](/images/dongzerun-weixin-code.png)s

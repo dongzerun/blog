@@ -4,7 +4,7 @@ categories: go
 toc: true
 ---
 
-![](https://gitee.com/dongzerun/images/raw/master/img/go-struct-cover.jpeg)
+![](/images/go-struct-cover.jpeg)
 
 我们知道 Go 没有继承的概念，接口结构体多使用组合，很多开源产品或是源代码都有大量的内嵌 (embeded field) 字段，用于特殊目的。本次分享的内容来自 grpc 与 go 源码
 
@@ -204,4 +204,4 @@ func main() {
 
 关于 `struct 骚操作` 大家有什么看法，欢迎留言一起讨论，大牛多留言 ^_^
 
-![](https://gitee.com/dongzerun/images/raw/master/img/dongzerun-weixin-code.png)
+![](/images/dongzerun-weixin-code.png)

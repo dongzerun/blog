@@ -4,7 +4,7 @@ categories: rust
 toc: true
 ---
 
-![](https://gitee.com/dongzerun/images/raw/master/img/rust-trait-cover.jpg)
+![](/images/rust-trait-cover.jpg)
 
 学 Rust 的一定离不开 `trait`, 告诉编译器某些类型拥有的，且能够被其他类型共享的功能，官方的定义叫做 [Defining Shared Behavior](https://doc.rust-lang.org/book/ch10-02-traits.html) 共享行为，同时还可以对泛型参数进行约束，将其指定为某些特定行为的类型。读过 [你真的了解泛型嘛](https://mp.weixin.qq.com/s/4PlneTYivBoBdZCBLso6jw) 朋友肯定知道，rust 的 `trait` 和 go `interface` 非常像，但是远比后者强大
 
@@ -374,4 +374,4 @@ impl<T> Add for Complex<T>
 
 关于 `trait` 大家有什么看法，欢迎留言一起讨论，如果理解有误，请大家指正 ^_^
 
-![](https://gitee.com/dongzerun/images/raw/master/img/dongzerun-weixin-code.png)
+![](/images/dongzerun-weixin-code.png)

@@ -4,7 +4,7 @@ categories: 服务治理
 toc: true
 ---
 
-![](https://gitee.com/dongzerun/images/raw/master/img/mie-huo-fire.jpg)
+![](/images/mie-huo-fire.jpg)
 
 换换口味今天不写纯技术文章，分享一个 high level 的话题。假如**公司或部门的微服务频繁出现故障，Boss 让你去负责稳定性建设，俗称救火队长，你会怎么做？？？**
 
@@ -62,7 +62,7 @@ toc: true
 
 **可以想像下，一个服务有 100 台机器，灰度没问题，就代表真的没问题嘛**？不可能的，所以全量上线也要分组，把控制权交给工程师
 
-![](https://gitee.com/dongzerun/images/raw/master/img/ci-cd.png)
+![](/images/ci-cd.png)
 
 对于 enginner 来讲，要培养风险意识，上线要观察日志，查看 dashboard. 要全面观察服务的健康状态，cpu, latency 正常服务没问题了嘛？肯定不是的，同时要注意新功能是否会 flood 下游服务，做好评估
 
@@ -91,7 +91,7 @@ toc: true
 #### 3.服务 runbook 定期演练
 这一点我体会非常深，就像消防员定期检查装备，然后测试灭火一样。服务要针对特定的问题，定制好 runbook, 毕竟维护服务的工程师是流动的，今天是 owner, 明天就移交给 tom 了
 
-![](https://gitee.com/dongzerun/images/raw/master/img/runbook.png)
+![](/images/runbook.png)
 
 我们的服务依赖 `etcd`, 大家也知道机器挂掉概率虽然低，但是预期之中的。所以我们编写了 runbook, 滚动升级 etcd, 移除添加故障节点等等，非常好用，新手按照流程走就可以
 
@@ -103,7 +103,7 @@ toc: true
 #### 5.Infra建设
 跳出 engineer 的视野，从公司的角度来看，一个 idc 或是云厂商是不够的。国内提的最多的是**两地三中心**, 多活设计。其实这个很难，大部份公司的都是假多活，主机房挂了全部完蛋
 
-![](https://gitee.com/dongzerun/images/raw/master/img/idc-duohuo.png)
+![](/images/idc-duohuo.png)
 
 但是水灾，火灾这个事谁能保证就不发生呢？**至少数据要做到多地备份**，服务可以挂，数据没了公司一定会倒闭。当年天津港的事印象特别深，微信 IDC 的负责人做的非常漂亮，这事不能多说，感兴趣的可以去搜
 
@@ -115,4 +115,4 @@ toc: true
 
 关于 `稳定性` 大家有什么看法，欢迎留言一起讨论，大牛多留言 ^_^
 
-![](https://gitee.com/dongzerun/images/raw/master/img/dongzerun-weixin-code.png)
+![](/images/dongzerun-weixin-code.png)

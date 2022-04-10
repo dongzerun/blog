@@ -113,4 +113,4 @@ StatementList = { Statement ";" } .
 
 关于 `关键字` 大家有什么看法，欢迎留言一起讨论，大牛多留言 ^_^s
 
-![](https://gitee.com/dongzerun/images/raw/master/img/dongzerun-weixin-code.png)
+![](/images/dongzerun-weixin-code.png)

@@ -4,7 +4,7 @@ categories: k8s
 toc: true
 ---
 
-![](https://gitee.com/dongzerun/images/raw/master/img/_100925801_spacealamy.jpg)
+![](/images/_100925801_spacealamy.jpg)
 
 题目稍有些标题党，最近公司想用 `chaos-mesh` 对 `k8s` 做混沌测试，开始做前期的调研，发现 [pingcap](https://www.jianshu.com/p/6425050591b7, "Chaos Mesh - 让时间在容器中自由摇摆") 对时间的注入非常硬核，而且最终方案居然是实习生构思出来的 ^^
 
@@ -23,7 +23,7 @@ TL;DR: 通过劫持 `vdso`, 将时间函数跳转到 hack 过的汇编指令来�
 
 如果直接使用 linux `date` 命令修改，会影响到宿主机上其它所有容器。有没有方法能只影响某个容器？
 
-![](https://gitee.com/dongzerun/images/raw/master/img/time-chaos.jpg)
+![](/images/time-chaos.jpg)
 
 之前发过一篇文章 [时钟源为什么会影响性能](https://mp.weixin.qq.com/s/06SDQLzDprJf2AEaDnX-QQ, "时钟源为什么会影响性能"), 从中可以看到，go 调用系统时间函数时，会先调用 `vdso` 的代码，如果时钟源符合条件，直接在用户空间完成，并不会进入内核空间，所以针对这一现象，`syscall` 劫持的方法就不能使用了
 
@@ -410,4 +410,4 @@ now 2021-05-26 03:35:26.704931111 +0000 UTC m=+220.003161235
 ### 小结
 这次分享就这些，以后面还会分享更多的内容，如果感兴趣，可以关注并点击左下角的`分享`转发哦(:
 
-![](https://gitee.com/dongzerun/images/raw/master/img/dongzerun-weixin-code.png)
+![](/images/dongzerun-weixin-code.png)

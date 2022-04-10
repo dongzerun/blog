@@ -20,7 +20,7 @@ GOOS=linux GOARCH=amd64 go build main.go
 
 让我们来看下操作细节：
 
-![](https://gitee.com/dongzerun/images/raw/master/img/docker-reference.jpg)
+![](/images/docker-reference.jpg)
 
 安装 docker for mac 可以自行 google, 这里要注意调大 cpu 和 memory, 否则编译大型代码时内存不足。
 
@@ -44,4 +44,4 @@ GOOS=linux GOARCH=amd64 go build main.go
 ### 小结
 这次分享就这些，以后面还会分享更多的内容。如果感兴趣，请大家`关注`, `在看`，点击左下角的`分享`素质三连哦(:
 
-![](https://gitee.com/dongzerun/images/raw/master/img/dongzerun-weixin-code.png)
+![](/images/dongzerun-weixin-code.png)

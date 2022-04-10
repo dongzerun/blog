@@ -4,7 +4,7 @@ categories: interface
 toc: true
 ---
 
-![](https://gitee.com/dongzerun/images/raw/master/img/go-interface-cover.jpg)
+![](/images/go-interface-cover.jpg)
 
 难怪码农自嘲是 CRUD boy, 每天确实在不断的堆屎，在别人的屎山上缝缝补补。下面的案例并没有 blame 任何人的意思，我也是堆屎工^^ 如有雷同，请勿对号入座
 
@@ -139,4 +139,4 @@ CI lint 不知道是否支持检查 interface 行数，但是如果行数成为�
 
 关于 `接口` 大家有什么看法，欢迎留言一起讨论，大牛多留言 ^_^
 
-![](https://gitee.com/dongzerun/images/raw/master/img/dongzerun-weixin-code.png)
+![](/images/dongzerun-weixin-code.png)

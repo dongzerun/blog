@@ -4,7 +4,7 @@ categories: rust
 toc: true
 ---
 
-![](https://gitee.com/dongzerun/images/raw/master/img/inject-fault-cover.jpg)
+![](/images/inject-fault-cover.jpg)
 
 年初分享过[聊聊 Go failpoint 使用](https://mp.weixin.qq.com/s/R6LYv20bM9hsZjlDHYYnBQ)，感兴趣的可以看看看这篇文章
 
@@ -336,4 +336,4 @@ fn get_task(&self) -> Option<Task> {
 
 关于 `Failpoint` 大家有什么看法，欢迎留言一起讨论，大牛多留言 ^_^
 
-![](https://gitee.com/dongzerun/images/raw/master/img/dongzerun-weixin-code.png)
+![](/images/dongzerun-weixin-code.png)

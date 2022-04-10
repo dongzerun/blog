@@ -4,14 +4,14 @@ categories: go
 toc: true
 ---
 
-![](https://gitee.com/dongzerun/images/raw/master/img/jit-cover.jpg)
+![](/images/jit-cover.jpg)
 
 原文作者是 **Sidhartha Mani** 首发于 [Medium](https://medium.com/kokster/writing-a-jit-compiler-in-golang-964b61295f),曾由 [jiangwei161002010](https://github.com/jiangwei161002010) 翻译后发布在 [Go 语言中文网](https://studygolang.com/articles/12730, "Go 语言中文网")
 
 ---
 JIT([Just-In-Time](https://en.wikipedia.org/wiki/Just-in-time_compilation, "Just-In-Time")) Compiler 是指在运行期，实时生成机器码的服务。机器码 (machine code) 是 cpu 识别的机器指令
 
-![](https://gitee.com/dongzerun/images/raw/master/img/assember-machine-code.jpg)
+![](/images/assember-machine-code.jpg)
 
 一般我们都是 Go 代码翻译成汇编，然后转换成 cpu 可识别的机器码。相比于其它代码 (`fmt.Printf`), Jit Compiler 是在运行期生成，而不是编译期 (即我们常用的 go build)
 
@@ -26,7 +26,7 @@ write(int fd, const void *buf, size_t count)
 ```
 众所周知，肯定是一个 `write` 的系统调用，`fd` 是输出的文件描述符，标准输出是 1, 第二个参数是 `Hello World!` 字符串指针，第三个参数 count 是要打印的字符数 12
 
-![](https://gitee.com/dongzerun/images/raw/master/img/syscall-register.jpg)
+![](/images/syscall-register.jpg)
 
 同时我们也要知道，系统调用是 `Syscall` 指令，rax 告诉 [linux 要执行的具体系统调用函数编号](https://filippo.io/linux-syscall-table/https://filippo.io/linux-syscall-table/, "系统调用函数编号")，`write` 是 1, 函数的参数由 6 个寄存器完成，由于 `write` 只有三个参数，所有第一个参数 rdi 是 1 (文件描述符)，第二个参数 rsi 是字符串地址，但是暂时无法确定，稍后咱们再看。第三个参数 rdx 是字符串长度 12
 
@@ -182,6 +182,6 @@ exit_group(0)                           = ?
 
 关于 `Go JIT` 大家有什么看法，欢迎留言一起讨论，大牛多留言，下一篇分享生命周期 ^_^
 
-![](https://gitee.com/dongzerun/images/raw/master/img/dongzerun-weixin-code.png)
+![](/images/dongzerun-weixin-code.png)
 
 

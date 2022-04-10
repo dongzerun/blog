@@ -4,7 +4,7 @@ categories: go
 toc: true
 ---
 
-![](https://gitee.com/dongzerun/images/raw/master/img/7-Code-Refactoring-Techniques-in-Software-Engineering.jpg)
+![](/images/7-Code-Refactoring-Techniques-in-Software-Engineering.jpg)
 
 断断续续读完了《重构 改善即有代码的设计2》, 作者是 [Martin Fowler](https://martinfowler.com/) 大神，这本书也是很多 IT 大牛推荐的码农必读书之一。把读到的感悟，加上自己的理解，总结成最佳实践分享给大家
 
@@ -15,7 +15,7 @@ toc: true
 前五章偏理论论证部分，让我们看一下 `What`, `Where`, `Who`, `How`, `Why` 
 ### 为什么做重构
 这是个微服务爆炸的时代，大型系统少则几百多则上千个服务，历史遗留代码几经易手，根本没有文档，全靠口口相传，经过几代目交接后，代码己经完全没法读了
-![](https://gitee.com/dongzerun/images/raw/master/img/bad-design-problem.jpg)
+![](/images/bad-design-problem.jpg)
 
 增加功能，可能要改动多个模块，写的时候不明所以，上线也战战兢兢。好的设计，增加功能需要的时间比较短，坏的设计可能都无法更改，代码完全腐烂后，只能推倒重来
 
@@ -31,7 +31,7 @@ toc: true
 
 **在不改变软件可观察行为的前提下，通过一系列方法，设整代码、结构，提高代码的可理解性，降低阅读以及个改成本**
 
-![](https://gitee.com/dongzerun/images/raw/master/img/refactor-what.jpg)
+![](/images/refactor-what.jpg)
 
 修改业务流程是重构，修改整个模块是重构，修改一个小的函数也是。有点类似**勿以善小而不为，勿以恶小而为之**的感觉，腐烂都是从一个个小的无所谓开始的
 
@@ -49,7 +49,7 @@ toc: true
 ### 何时做
 事不过三，第一次做 dirty 事情只管去做，第二次做类似的事会产生反感，但还是要做，第三次就应该要重构。**言外之外，闻到了代码腐烂的味道**，比如函数过长、重复代码、逻辑混乱，类划分不清、过多硬编码、定义与实现耦合等等
 
-![](https://gitee.com/dongzerun/images/raw/master/img/Red-Green-Refactoring.jpg)
+![](/images/Red-Green-Refactoring.jpg)
 
 1.**预备性重构**：书里说最佳时机是在添加新功能之前，修改 bug 时也一样，有时会发现，把部分代码做出调整，更有利于 debug, 或者把数据的更新与写入逻辑拆开，会避免造成错误
 
@@ -67,7 +67,7 @@ toc: true
 
 首先是**构建防护网：重构的第一块基石是测试代码，集成测试和单测**。每重构完一块大的函数，都要运行 UT 测试，确认重构有效，不改变原有的外部行为表现。如果我们的改动是 API 级别，或是大的模块改动，只有 UT 是不够的，就需要跑集成测试，从业务测证明没有问题，比如定单成交率，取消率，支付成功率等等
 
-![](https://gitee.com/dongzerun/images/raw/master/img/refactoring-what.jpg)
+![](/images/refactoring-what.jpg)
 
 自测试代码、持续集成、重构三架马车缺一不可。但是国内公司基本不写 UT, 业务粗快猛干，规定时间内完成功能上线才是 KPI. 想想接手这样的代码，你敢重构嘛？此外还不包括 UT 不规范的
 
@@ -91,7 +91,7 @@ func BookOrder() error {
 
 * 非重构的工程师得不到锻炼，有人负责捡垃圾，那么当然可以肆无忌惮的写垃圾，反正完成功能上线就是 KPI
 
-![](https://gitee.com/dongzerun/images/raw/master/img/incremental-changes.jpg)
+![](/images/incremental-changes.jpg)
 
 那么由谁来做重构呢？团队里的所有人，参考上面的何时做部分，预备性的重构，捡垃圾式的重构，长期有计划性的重构，每个人都要参与。只要构建好防护网，渐进式的重构，可能每天都在发生 `minor change`，容易测试与回滚，也容易合并 `master`, 整体代码质量不断向好的方向发展
 
@@ -110,4 +110,4 @@ func BookOrder() error {
 
 关于 `重构` 大家有什么看法，欢迎留言一起讨论，大牛多留言 ^_^
 
-![](https://gitee.com/dongzerun/images/raw/master/img/dongzerun-weixin-code.png)
+![](/images/dongzerun-weixin-code.png)

@@ -4,7 +4,7 @@ categories: go
 toc: true
 ---
 
-![](https://gitee.com/dongzerun/images/raw/master/img/context-cover.jpg)
+![](/images/context-cover.jpg)
 
 去年写了[也许是 Context 最佳实践](https://mp.weixin.qq.com/s/UmqjIqesXddotHpNh02VCw), 回头看有些遗漏，重新编辑整理，总结截至 go 1.17 的最佳实践
 
@@ -66,7 +66,7 @@ func WithDeadline(parent Context, d time.Time) (Context, CancelFunc)
 func WithTimeout(parent Context, timeout time.Duration) (Context, CancelFunc)
 ```
 
-![](https://gitee.com/dongzerun/images/raw/master/img/ctx-cancel.jpg)
+![](/images/ctx-cancel.jpg)
 
 经过多次派生后，ctx 是一个类似多叉树的结构。当 ctx-1 被 cancel 时，会级联 cancel 以 ctx-1 为根的整棵树，但是原来的 root, ctx2 ctx3 不受影响
 ```go
@@ -147,7 +147,7 @@ func (c *valueCtx) String() string {
 }
 ```
 
-![](https://gitee.com/dongzerun/images/raw/master/img/context-fmt.jpg)
+![](/images/context-fmt.jpg)
 
 同时注意，后来 go 对此做了部份修复，一定程序上解决了问题。但也记住不要打印 ctx
 
@@ -267,4 +267,4 @@ func parentCancelCtx(parent Context) (*cancelCtx, bool) {
 
 关于 `Context` 大家有什么看法，欢迎留言一起讨论，大牛多留言 ^_^
 
-![](https://gitee.com/dongzerun/images/raw/master/img/dongzerun-weixin-code.png)
+![](/images/dongzerun-weixin-code.png)

@@ -71,7 +71,7 @@ error[E0382]: borrow of moved value: `s1`
 ```
 执行报错，因为 s1 值的所有权己经 move 给 s2 了，原来的 s1 己经处于不可用状态。**move occurs because `s1` has type `String`, which does not implement the `Copy` trait**
 
-![](https://gitee.com/dongzerun/images/raw/master/img/s1-s2.jpg)
+![](/images/s1-s2.jpg)
 
 可以看一下字符串的结果，和 go 一样，string header 里面有 pointer 指向堆内存。如果 s1, s2 浅拷贝，同时将 pointer 指向堆上的数据，那么离开作用域后，会将同一片内存释放两次！！！
 
@@ -215,4 +215,4 @@ S2 中也包含了 E1 类型，E1 类型没有实现 `Clone` 和 `Copy trait`，
 
 关于 Rust Ownership 大家有什么看法，欢迎留言一起讨论，大牛多留言 ^_^
 
-![](https://gitee.com/dongzerun/images/raw/master/img/dongzerun-weixin-code.png)
+![](/images/dongzerun-weixin-code.png)

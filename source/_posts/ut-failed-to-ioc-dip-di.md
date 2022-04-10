@@ -3,7 +3,7 @@ title: 分享一个 UT failed 引出的思考
 toc: true
 ---
 
-![](https://gitee.com/dongzerun/images/raw/master/img/designpatterns.jpg)
+![](/images/designpatterns.jpg)
 
 我司使用 mono repo, 某个服务 ut 失败，导致别人无法构建。查看下源代码以及 ut case, 发现槽点蛮多，讲一下如何修复，展开聊一下**写单测要注意的一些点**，和设计模式中的概念**依赖反转、依赖注入、控制反转**
 
@@ -49,7 +49,7 @@ func dateIsSane(in time.Time) bool {
 ```
 上面是 test case table, 最后报错 great than year 断言失败了。简单的看下实现逻辑就能发现，函数是想修正到秒值，但假如刚好 go gc STW 100ms, 就会导致 expect 与实际结果不符
 
-![](https://gitee.com/dongzerun/images/raw/master/img/ut-failed.jpg)
+![](/images/ut-failed.jpg)
 
 如何从根本上修复问题呢？要么修改函数签名，外层传入 time.Now()
 ```go
@@ -70,7 +70,7 @@ func toSeconds(in int64) int64 {
 
 如果依赖环境的资源，那么就变成了集成测试。如果进一步再依赖业务的状态机，那么就变成了回归测试，可以说是层层递进的关系。只有做好代码的单测，才能进一步确保其它测试正常。同时也不要神话单测，过份追求 100% 覆盖
 
-![](https://gitee.com/dongzerun/images/raw/master/img/ut-integration-e2e.jpg)
+![](/images/ut-integration-e2e.jpg)
 
 ### 依赖注入
 刚才我们非常自然的引入了设计模式中，非常重要的 [依赖注入 Dependenccy injection](https://en.wikipedia.org/wiki/Dependency_injection) 概念
@@ -379,5 +379,5 @@ func (set *IntSet) Delete(x int) {
 
 关于 `控制反转` 大家有什么看法，欢迎留言一起讨论，大牛多留言 ^_^
 
-![](https://gitee.com/dongzerun/images/raw/master/img/dongzerun-weixin-code.png)
+![](/images/dongzerun-weixin-code.png)
 

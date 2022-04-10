@@ -4,7 +4,7 @@ categories: etcd
 toc: true
 ---
 
-![](https://gitee.com/dongzerun/images/raw/master/img/roblox-cover.jpg)
+![](/images/roblox-cover.jpg)
 
 Roblox 是一家游戏公司，也是元宇宙概念股。去年底发生一起故障，持续三天之久，官网也发布 [blog](https://blog.roblox.com/2022/01/roblox-return-to-service-10-28-10-31-2021/, "官方故障blog")总结了原因，但并没有说清楚底层 `boltdb` 的问题。由于需要 FQ, 同时把官方 blog 复制了一份，欢迎围观 https://mytechshares.com/2022/02/16/roblox-return-to-service/
 
@@ -18,14 +18,14 @@ Boltdb 性能问题参考 [HN 的讨论](https://news.ycombinator.com/item?id=30
 
 Boltdb 是 `LMDB` 的移值实现，单机存储引擎里算是比较挫的，目前出名开源软件只有 etcd 在使用，并且原作者 [go boltdb](https://github.com/boltdb/bolt, "go boltdb") 己经废弃 deprecated, 请使用 etcd 的 [bboltdb](https://github.com/etcd-io/bbolt, "etcd bboltdb")
 
-![](https://gitee.com/dongzerun/images/raw/master/img/storage-bench-test.jpg)
+![](/images/storage-bench-test.jpg)
 
 etcd 之所以采用 boltdb, 主要是看中了 boltdb 是 B+tree 实现，支持完整的 ACID, 支持事务。从上图可以看到，性能压测除了 Query 50M values 全是最低的。关于 boltdb 源码分析推荐老C的 [boltdb 源码分析系列](https://www.codedump.info/post/20200625-boltdb-1/, "boltdb 源码分析系列")，我是他二十年老粉
 
 ### 性能问题
 Boltdb 只有一个文件，使用 Mmap syscall 映射到内存，并没有使用内存池来管理。磁盘文件以页 Page(4KB) 划分数据单元，当页不在使用时，并不会释放磁盘空间，而是使用 freelist 维护空闲列表，供后续使用
 
-![](https://gitee.com/dongzerun/images/raw/master/img/boltdbdetail.jpg)
+![](/images/boltdbdetail.jpg)
 
 上图是 Roblox 公司的数据统计，4G 大小的文件，大部分都是空闲的并未使用。性能问题就在于每次 B+tree 调整，分配，释放页时，[arrayAllocate](https://github.com/etcd-io/bbolt/blob/master/freelist.go#L109, "arrayAllocate")算法复杂度都是 O(n)
 ```go
@@ -188,7 +188,7 @@ func (f *freelist) hashmapAllocate(txid txid, n int) pgid {
 ```
 `hashmapAllocate` 用于申请连续空闲的 n 页，复杂度是 O(1), 也有可能退化成 O(n) 去遍历 freemaps, 从大于 n 页的列表中申请
 
-![](https://gitee.com/dongzerun/images/raw/master/img/benchmarkboltdbhash.jpg)
+![](/images/benchmarkboltdbhash.jpg)
 
 性能测试来自 [alibaba blog](https://www.alibabacloud.com/blog/performance-optimization-of-etcd-in-web-scale-data-scenario_594750, "etcd在大规模数据场景中的性能优化")
 
@@ -206,4 +206,4 @@ func (f *freelist) hashmapAllocate(txid txid, n int) pgid {
 
 关于 `boltdb` 大家有什么看法，欢迎留言一起讨论，大牛多留言 ^_^
 
-![](https://gitee.com/dongzerun/images/raw/master/img/dongzerun-weixin-code.png)
+![](/images/dongzerun-weixin-code.png)

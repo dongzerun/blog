@@ -4,7 +4,7 @@ categories: 小技巧
 toc: true
 ---
 
-![](https://gitee.com/dongzerun/images/raw/master/img/systemtap.png)
+![](/images/systemtap.png)
 
 霸爷博客，干货满满。有两篇文章现在还记得，[《Linux下如何知道文件被哪个进程写》](http://blog.yufeng.info/archives/2581#more-2581, "Linux下如何知道文件被哪个进程写")和[《巧用Systemtap注入延迟模拟IO设备抖动》](http://blog.yufeng.info/archives/2935, "巧用Systemtap注入延迟模拟IO设备抖动")，周末突然想起来，发现能看懂了:)
 
@@ -169,4 +169,4 @@ dd if=/dev/zero of=test.dat  bs=8k count=1000000
 关于 systemtap 大家有什么看法，欢迎留言一起讨论 ^_^
   
 
-![](https://gitee.com/dongzerun/images/raw/master/img/dongzerun-weixin-code.png)
+![](/images/dongzerun-weixin-code.png)

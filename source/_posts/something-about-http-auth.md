@@ -4,7 +4,7 @@ categories: go
 toc: true
 ---
 
-![](https://gitee.com/dongzerun/images/raw/master/img/auth-cover.jpg)
+![](/images/auth-cover.jpg)
 
 上半年参与的项目涉及到 gateway 和 id 权限认证系统，通过系统性的学习与接触，了解很多 HTTP 鉴权的那些事。分享实践的细节，都是通用做法，符合标准协义，不涉及公司机密
 
@@ -34,7 +34,7 @@ toc: true
 #### 1.Basic/Digest
 `Digest` 翻译成摘要，是 `Basic` 的加强版，放在一起讨论，完整定义参考 [RFC2617 Basic and Digest Access Authentication](https://datatracker.ietf.org/doc/html/rfc2617, "Basic Digest RFC2617")
 
-![](https://gitee.com/dongzerun/images/raw/master/img/basic-access-authentication.jpg)
+![](/images/basic-access-authentication.jpg)
 
 Basic 认证非常简单，Server 发现没有登录返回 401 Unauthorized 并且携带 header `WWW-Authenticate: Basic realm="User Visible Realm"`
 
@@ -50,7 +50,7 @@ Client 用户需要将 `user:password` 用户名秘密用分号 : 组合在一�
 #### 2.HMAC
 `HMAC` [hash-based message authentication code](https://en.wikipedia.org/wiki/HMAC, "hash-based message authentication code") 是市面上使用最广泛的认证技术，源自于 [message authentication code](https://en.wikipedia.org/wiki/Message_authentication_code, "message authentication code"), 主要用于消息签名，防止被第三方修改
 
-![](https://gitee.com/dongzerun/images/raw/master/img/message-authentication-code.jpg)
+![](/images/message-authentication-code.jpg)
 
 使用 HMAC 需求提前生成 app key 与 access secret key 给第三方，国内习惯称之为 `AK/SK`, 我司叫做 `partner-id/secret`, 叫什么不重要
 
@@ -101,7 +101,7 @@ func ComputeBase64EncodedHMACSHA256Signature(message string, secret string) (str
 #### 3.Oauth2
 [Oauth2](https://datatracker.ietf.org/doc/html/rfc6749, "Oauth2 RFC6749") 是业界标准的授权协议，专注于客户端开发人员的简单性，同时为网络应用、桌面应用、手机和客厅设备提供特定的授权流程。
 
-![](https://gitee.com/dongzerun/images/raw/master/img/oauth2.jpg)
+![](/images/oauth2.jpg)
 
 主要有以下四种模式：
 
@@ -114,7 +114,7 @@ func ComputeBase64EncodedHMACSHA256Signature(message string, secret string) (str
 
 而 `Client Credentials` 其实更像是给服务端做认证，只有 `client`, `server` 所以称之为 **Two-Legged** 两腿模式，我司就使用这种做 API 鉴权
 
-![](https://gitee.com/dongzerun/images/raw/master/img/oauth2-client.jpg)
+![](/images/oauth2-client.jpg)
 
 客户端模式非常简单，`server` 提前创建好 ClientID&ClientSecret 给第三方服务，然后第三方通过 ClientID&ClientSecret 调用 `/oauth2/token` 接口生成 token, 后续所有访问携带这个 token 即可，每次由 id 服务了调用 `/oauth2/verify` 去验证
 
@@ -130,7 +130,7 @@ curl -i https://xxxxxxxx/v1/styles/dark.json -H 'Authorization: Bearer this-is-a
 ```
 指定 grant_type 为 `client_credentials` 同时需要填写 scope, 非常重要，用于控制该 user 能访问哪些资源
 
-![](https://gitee.com/dongzerun/images/raw/master/img/oauth2-code.jpg)
+![](/images/oauth2-code.jpg)
 
 和两腿的一样，开始进行授权过程以前，第三方应用先要到授权服务器上进行注册，所谓注册，是指向认证服务器提供一个域名地址（用于回调），然后从授权服务器中获取 ClientID 和 ClientSecret
 
@@ -162,7 +162,7 @@ curl -i https://xxxxxxxx/v1/styles/dark.json -H 'Authorization: Bearer this-is-a
 
 JWT 格式由三段组成，**header.payload.signature**, 让我们看个例子
 
-![](https://gitee.com/dongzerun/images/raw/master/img/jwt-test-case.jpg)
+![](/images/jwt-test-case.jpg)
 
 header 头表示用什么算法进行签名，payload 是一堆 json 可以处定义，但一些公用的己经定义好，signature 是签名
 
@@ -243,6 +243,6 @@ payload 里面 iss 指搬发者信息，exp 是指 JWT 过期时间，如果允�
 
 关于 `HTTP 鉴权` 大家有什么看法，欢迎留言一起讨论，大牛多留言 ^_^
 
-![](https://gitee.com/dongzerun/images/raw/master/img/dongzerun-weixin-code.png)
+![](/images/dongzerun-weixin-code.png)
 
 

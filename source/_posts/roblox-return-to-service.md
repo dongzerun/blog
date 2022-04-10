@@ -35,7 +35,7 @@ Consul is deployed as a cluster of machines in two roles. “Voters” (5 machin
 
 The following is a recent screenshot of a Consul dashboard at Roblox after the incident. Many of the key operational metrics referenced in this blog post are shown at normal levels. KV Apply time for instance is considered normal at less than 300ms and is 30.6ms in this moment. The Consul leader has had contact with other servers in the cluster in the last 32ms, which is very recent.
 
-![normal operations](https://gitee.com/dongzerun/images/raw/master/img/normal-operations-consul.jpg)
+![normal operations](/images/normal-operations-consul.jpg)
 
 In the months leading up to the October incident, Roblox upgraded from Consul 1.9 to Consul 1.10 to take advantage of a new streaming feature. This streaming feature is designed to significantly reduce the CPU and network bandwidth needed to distribute updates across large-scale clusters like the one at Roblox.
 
@@ -47,15 +47,15 @@ The initial investigation suggested that the Consul cluster that Vault and many 
 
 Even with new hardware, Consul cluster performance continued to suffer. At 16:35, the number of online players dropped to 50% of normal.
 
-![CCU during the 16:35 PST Player Drop](https://gitee.com/dongzerun/images/raw/master/img/ccu-during.jpg)
+![CCU during the 16:35 PST Player Drop](/images/ccu-during.jpg)
 
 This drop coincided with a significant degradation in system health, which ultimately resulted in a complete system outage. Why? When a Roblox service wants to talk to another service, it relies on Consul to have up-to-date knowledge of the location of the service it wants to talk to. However, if Consul is unhealthy, servers struggle to connect. Furthermore, Nomad and Vault rely on Consul, so when Consul is unhealthy, the system healthy.
 
 At this point, the team developed a new theory about what was going wrong: increased traffic. Perhaps Consul was slow because our system reached a tipping point, and the servers on which Consul was running could no longer handle the load? This was our second attempt at diagnosing the root cause of the incident.
 
-![spin lock root cause](https://gitee.com/dongzerun/images/raw/master/img/rootcause-of-incident.jpg)
+![spin lock root cause](/images/rootcause-of-incident.jpg)
 
-![htop show cpu usage](https://gitee.com/dongzerun/images/raw/master/img/htop-cpu-usage.jpg)
+![htop show cpu usage](/images/htop-cpu-usage.jpg)
 
 Given the severity of the incident, the team decided to replace all the nodes in the Consul cluster with new, more powerful machines. These new machines had 128 cores (a 2x increase) and newer, faster NVME SSD disks. By 19:00, the team migrated most of the cluster to the new machines but the cluster was still not healthy. The cluster was reporting that a majority of nodes were not able to keep up with writes, and the 50th percentile latency on KV writes was still around 2 seconds rather than the typical 300ms or less.
 
@@ -112,11 +112,11 @@ While players were allowed to return to Roblox on October 31st, Roblox and Hashi
 
 Further analysis of the slow leader problem also uncovered the key cause of the two- second Raft data writes and cluster consistency issues. Engineers looked at flame graphs like the one below to get a better understanding of the inner workings of BoltDB.
 
-![boltdb freelist anaysis](https://gitee.com/dongzerun/images/raw/master/img/boltdb-freelist-analysis.jpg)
+![boltdb freelist anaysis](/images/boltdb-freelist-analysis.jpg)
 
 As previously mentioned, Consul uses a persistence library called BoltDB to store Raft log data. Due to a specific usage pattern created during the incident, 16kB write operations were instead becoming much larger. You can see the problem illustrated in these screenshots:
 
-![boltdb details](https://gitee.com/dongzerun/images/raw/master/img/boltdb-detail.jpg)
+![boltdb details](/images/boltdb-detail.jpg)
 
 The preceding command output tells us a number of things:
 * This 4.2GB log store is only storing 489MB of actual data (including all the index internals). 3.8GB is “empty” space.
@@ -124,7 +124,7 @@ The preceding command output tells us a number of things:
 
 Back pressure on these operations also created full TCP buffers and contributed to 2-3s write times on unhealthy leaders. The image below shows research into TCP Zero Windows during the incident.
 
-![Research into TCP zero windows. When a TCP receiver’s buffer begins to fill, it can reduce its receive window. If it fills, it can reduce the window to zero, which tells the TCP sender to stop sending.](https://gitee.com/dongzerun/images/raw/master/img/tcp-zerowindows.jpg)
+![Research into TCP zero windows. When a TCP receiver’s buffer begins to fill, it can reduce its receive window. If it fills, it can reduce the window to zero, which tells the TCP sender to stop sending.](/images/tcp-zerowindows.jpg)
 
 HashiCorp and Roblox have developed and deployed a process using existing BoltDB tooling to “compact” the database, which resolved the performance issues.
 

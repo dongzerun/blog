@@ -4,7 +4,7 @@ categories: misc
 toc: true
 ---
 
-![](https://gitee.com/dongzerun/images/raw/master/img/hexo-cover.jpg)
+![](/images/hexo-cover.jpg)
 
 个人 blog 欢迎访问：https://mytechshares.com/ , 内容同步自微信公众号。首先说下为什么自建 blog 站点：
 
@@ -12,7 +12,7 @@ toc: true
 * 在简书上写过一年，回头发现全都得平台打工了，内容审核极其严格
 * 网上有人洗我的稿，也不标明来源。虽不是什么大 v, 一起洗，大家洗洗更健康
 
-![](https://gitee.com/dongzerun/images/raw/master/img/my-blog-index.jpg)
+![](/images/my-blog-index.jpg)
 
 为什么不用 `Wordpress` 呢？blog 纯粹是静态页面，wp 太重了，各种 mysql 管理后台。
 
@@ -20,7 +20,7 @@ toc: true
 
 最终方案：`hexo` + `nginx` + `git`, 外加 gitee 实现的图床。本文大致分享下搭建流程，遇到报错可以私信沟通交流，网上也有解决方案
 
-![](https://gitee.com/dongzerun/images/raw/master/img/git-nginx-hexo.jpeg)
+![](/images/git-nginx-hexo.jpeg)
 
 [hexo](https://hexo.io/, "hexo") 用于在 Mac 本地渲染 html 静态页面，大家只需要编写 Markdown 文本即可。aliyun ec2 机器上搭建 `nginx` 服务用于提供 web 443/80 访问，ec2 上搭建 git server (数据目录就是 nginx 目录), 当 `hexo` 本地渲染完成后，`hexo` 自动 deploy 同步文件到 ec2 git 上，完成了自动的 CI/CD pipeline. 博客的图片可以放到 ec2 本地目录，也可以用图床，我选择使用 gitee 来节省带宽流量
 
@@ -28,11 +28,11 @@ toc: true
 
 Aliyun 服务器 2 cpus 1 G memory, 选择推荐的内蒙古大区。**性能突发实例即可，等以后流量高，性能不够再升级**
 
-![](https://gitee.com/dongzerun/images/raw/master/img/ec2-fee.jpg)
+![](/images/ec2-fee.jpg)
 
 选五年折扣非常大，950 大洋。国内麻烦的就是`域名`，备案很快，使用 aliyun 一站式备案即可，大概一周完成，线上操作即可
 
-![](https://gitee.com/dongzerun/images/raw/master/img/domain-fee.jpg)
+![](/images/domain-fee.jpg)
 
 域名五年一共 350 大洋，那么一共五年 1300，**成本平摊下来每年就是 260 元**。购买服务器还有个好处，可是做其它测试，搭建其它服务
 
@@ -54,7 +54,7 @@ root      2093  0.0  0.1  16156  1148 pts/0    S+   10:22   0:00 grep --color=au
 ```
 此时使用公网 ip 网页打开 80 端口，测试能否看到 nginx default html 页面。如果打不开，请检查 aliyun 安全组设置
 
-![](https://gitee.com/dongzerun/images/raw/master/img/aliyun-safe-group.jpg)
+![](/images/aliyun-safe-group.jpg)
 
 如上所示，需要设置 80/443 对外开放，默认是不允许访问的。`ps` 可以看到 nginx worker 线程有两个，用户名是 `www-data`, 之后我们会修改用户。nginx 默认配置文件是 `/etc/nginx/nginx.conf`, 新加的站点需要放到 `/etc/nginx/sites-enabled/` 目录下面
 
@@ -143,7 +143,7 @@ INFO  Hexo is running at http://localhost:4000 . Press Ctrl+C to stop.
 ```
 进入到 `test-hexo` 目录下面，运行 `hexo g` 生成静态页面，运行 `hexo server -s` 即可测试本地静态 web 服务，打开 `http://localhost:4000`
 
-![](https://gitee.com/dongzerun/images/raw/master/img/hexo-hello-world.jpg)
+![](/images/hexo-hello-world.jpg)
 
 看到默认的 hello 页面即可
 
@@ -207,7 +207,7 @@ root@test-hexo:~# nginx -s reload
 ```
 只需修改两处，`/etc/nginx/nginx.conf` 把 user 变成 git, `/etc/nginx/sites-enabled/default` 数据目录 root 改成上面提到的 `/home/git/test-blog-data`, 最后 `nginx -s reload` 重新加载。打开网站即可测试
 
-![](https://gitee.com/dongzerun/images/raw/master/img/test-nginx-git-new.jpg)
+![](/images/test-nginx-git-new.jpg)
 
 关于如何修改网站名称，自定义主题，添加友情链接等等，请网上搜索，非常简单
 
@@ -227,11 +227,11 @@ ssl_dhparam /etc/letsencrypt/ssl-dhparams.pem; # managed by Certbot
 ### 图床 (optional)
 图床是可选的，图片和静态的网页放到一起也可以，但是担心流量太大，ec2 带宽超额计费
 
-![](https://gitee.com/dongzerun/images/raw/master/img/picgo-gitee.jpg)
+![](/images/picgo-gitee.jpg)
 
 整体就是 `PicGo` 然后将图片上传到 `Gitee` 上，然后我们只需引用图片连接即可
 ```shell
-![](https://gitee.com/dongzerun/images/raw/master/img/dongzerun-weixin-code.png)
+![](/images/dongzerun-weixin-code.png)
 ```
 
 ### rss 添加订阅 (optional)
@@ -257,16 +257,16 @@ limit: 20
 ### 百度统计 (optional)
 大家可以添加 baidu/google 统计, 我这里出于方便选择了 baidu, 安装大家可以自行参考 baidu 官网
 
-![](https://gitee.com/dongzerun/images/raw/master/img/baidu-analersffffys.jpg)
+![](/images/baidu-analersffffys.jpg)
 
 其实没什么用，不过可以告诉我们你的 blog 没人看~~~
 
 ### 测试检索
 我只能说 baidu 是毒瘤
 
-![](https://gitee.com/dongzerun/images/raw/master/img/ctx-best-baidu.jpg)
+![](/images/ctx-best-baidu.jpg)
 
-![](https://gitee.com/dongzerun/images/raw/master/img/ctx-best-google.jpg)
+![](/images/ctx-best-google.jpg)
 
 上面两张图分别是 baidu, google 搜索的结果，结论：baidu 没落是有道理的...
 
@@ -275,4 +275,4 @@ limit: 20
 
 关于 `自建博客` 大家有什么看法，欢迎留言一起讨论，大牛多留言 ^_^
 
-![](https://gitee.com/dongzerun/images/raw/master/img/dongzerun-weixin-code.png)
+![](/images/dongzerun-weixin-code.png)

@@ -4,16 +4,16 @@ categories: redis
 toc: true
 ---
 
-![](https://gitee.com/dongzerun/images/raw/master/img/redis-cover.jpg)
+![](/images/redis-cover.jpg)
 
 有的网友想要学习 `redis` 源码的方法，鸽了一个月，今天分享我的学习方法以及路径，学习步骤不限于 `redis`, 换成其它开源软件套路也是一样。强调一下，**没有速成方法，没有捷径，只有苦行僧一般的坚持才能做好任何一件事情**，与君共勉 ^^ 以前写过 redis 系列，感兴趣的可以[订阅话题](https://mp.weixin.qq.com/mp/appmsgalbum?__biz=Mzg5MTYyNzM3OQ==&action=getalbum&album_id=1899308563211091969#wechat_redirect)
 
-![](https://gitee.com/dongzerun/images/raw/master/img/duozhe-redis-tui-gao.jpeg)
+![](/images/duozhe-redis-tui-gao.jpeg)
 
 ### 先导
 首先要知道什么是 `redis`, 最好的莫过于[官方文档](https://redis.io/documentation) https://redis.io/documentation 这是英文版的，也可以参考 [中文文档](http://redisdoc.com/)
 
-![](https://gitee.com/dongzerun/images/raw/master/img/redis-io-document.jpg)
+![](/images/redis-io-document.jpg)
 
 通过文档，我们会了解 `redis` 基本的数据结构以及用法：`string`, `set`, `zset`, `hset`, `list` 等等，有一个直观的感受，如果连 `redis` 是做什么用的都不知道，那直接看源码有何意义呢？比如 [An introduction to Redis data types and abstractions](https://redis.io/topics/data-types-intro)
 
@@ -21,15 +21,15 @@ toc: true
 
 ### 源码学习
 
-![](https://gitee.com/dongzerun/images/raw/master/img/redis-sheji-and-shixian.jpg)
+![](/images/redis-sheji-and-shixian.jpg)
 
 《Redis设计与实现》唯一推荐剖析源码的书，内容不错受益匪浅，不介意给这个广告位^^ 
 
-![](https://gitee.com/dongzerun/images/raw/master/img/san-jiao.jpg)
+![](/images/san-jiao.jpg)
 
 边看书，边看源码，再结合文档，加深理解，学习非常快。只有源码才是最准确的，书不能一直更新，文档也会有错误，而且非常低级的都出现过
 #### 1.分模块学习
-![](https://gitee.com/dongzerun/images/raw/master/img/redis-arch-2015.jpg)
+![](/images/redis-arch-2015.jpg)
 
 整体来讲，redis 架构非常清晰，模块大致有：cluster 集群实现、replication 复制、数据结构、networking epoll、persist 持久化 等等
 
@@ -40,13 +40,13 @@ toc: true
 Replication 复制模块非常复杂，完整流程被割裂到多个文件，同时由于 epoll 的存在，各种 event 事件驱动，新手很容易蒙逼。建义从 redis 2.4 开始看
 
 #### 2.跟踪请求流程
-![](https://gitee.com/dongzerun/images/raw/master/img/redis-cmd-work-flow.jpg)
+![](/images/redis-cmd-work-flow.jpg)
 
 redis 数据处理流程比较复杂，代码割裂，epoll 事件。网上有很多分析这方面的文章，建义多通读几遍，然后再阅读源码，可以重新编译源码，debug 模式，并添加更多的日志来验证
 #### 3.通过 issue 学习
 举一个 [9323](https://github.com/redis/redis/pull/9323) Swap db only at end of diskless replication for better availability 的例子，里面的讨论也蛮有价值的，对于理解 bug 以及 replication 帮助非常大
 
-![](https://gitee.com/dongzerun/images/raw/master/img/9323-swap-db-only.jpg)
+![](/images/9323-swap-db-only.jpg)
 
 歪个楼，学习 etcd 时腾讯云贡献了一个 [issue11651](https://github.com/etcd-io/etcd/issues/11651), 解决了三年之久的 etcd3 数据不一致 bug, 分析验证过程干货十足。强烈建义有空多看看 issue
 #### 4.多版本实现对比
@@ -60,15 +60,15 @@ redis 数据处理流程比较复杂，代码割裂，epoll 事件。网上有�
 #### 5.多做压测
 虽然 redis 运行时不止一个线程，但数据处理只有一个，所以说 redis 是典型的单线程模型，基于 epoll 实现多路复用。市面上类似 redis 的轮子有很多，关于多线程版本实现也很多，阿里也有自研的
 
-![](https://gitee.com/dongzerun/images/raw/master/img/redis-multi-io.jpg)
+![](/images/redis-multi-io.jpg)
 
 那么多线程版本性能提升多少呢？性能提升的点在哪里呢？
 
-![](https://gitee.com/dongzerun/images/raw/master/img/redis-multi-io-bench.jpg)
+![](/images/redis-multi-io-bench.jpg)
 
 上图是之前做的压测，多线程版本性能提高很明显，但也占用了很多资源
 
-![](https://gitee.com/dongzerun/images/raw/master/img/old-benchmark.jpg)
+![](/images/old-benchmark.jpg)
 
 至于性能问题，可以通过 pprof 查看瓶颈点，感兴趣的可以自行实验
 #### 6.通过故障学习
@@ -84,6 +84,6 @@ redis 数据处理流程比较复杂，代码割裂，epoll 事件。网上有�
 
 关于 `redis` 大家有什么看法，欢迎留言一起讨论，大牛多留言 ^_^
 
-![](https://gitee.com/dongzerun/images/raw/master/img/dongzerun-weixin-code.png)
+![](/images/dongzerun-weixin-code.png)
 
 

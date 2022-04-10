@@ -27,11 +27,11 @@ fn main() {
 
 ### 借用检查器
 
-![](https://gitee.com/dongzerun/images/raw/master/img/the-borrower-checker.png)
+![](/images/the-borrower-checker.png)
 
 编译器有一个借用检查器 (borrow checker) 用来对比作用域，来决定这个引用是否有效。上图有两个注释 `'a` `'b` 来分别代表 r, x 的作用域，内存语句块的 `'b` 远远小于外层的 `'a`, 编译阶段发现 x 生命周期短于 r, 所以报错阻止编译
 
-![](https://gitee.com/dongzerun/images/raw/master/img/borrow-checker-fix.png)
+![](/images/borrow-checker-fix.png)
 
 如果要修复也很简单，把 `println` 放到内层语句块即可。大多数时候，我们不需要显示指定 lifetimes, 编译器很智能，会自动帮我们推断，但也有例外
 ### 看个例子
@@ -54,7 +54,7 @@ fn longest(x: &str, y: &str) -> &str {
 ```
 来看一个需要指定 lifetimes 的例子，`longest` 返回字符串最长的引用，编译时报错
 
-![](https://gitee.com/dongzerun/images/raw/master/img/longest-error2.jpg)
+![](/images/longest-error2.jpg)
 
 编译器蒙逼了，他不知道函数返回的引用到底是哪一个，需要指定生命周期。并且很贴心的给了提示 
 ```rust
@@ -132,7 +132,7 @@ fn longest<'a>(x: &'a str, y: &'a str) -> &'a str {
     }
 }
 ```
-![](https://gitee.com/dongzerun/images/raw/master/img/string2-not-live-enough.png)
+![](/images/string2-not-live-enough.png)
 
 这个例子就会报错，虽然我们指定了生命周期，但没什么用。`string2` 在语句块结束后事就被释放了，println resut 时继续使用 string2 的引用就是非法的。把 println 放在语句块内部就可以了
 ### 多个生命周期参数
@@ -222,4 +222,4 @@ impl<'a> ImportantExcerpt<'a> {
 
 关于 `Rust lifetime` 大家有什么看法，欢迎留言一起讨论，大牛多留言 ^_^
 
-![](https://gitee.com/dongzerun/images/raw/master/img/dongzerun-weixin-code.png)
+![](/images/dongzerun-weixin-code.png)

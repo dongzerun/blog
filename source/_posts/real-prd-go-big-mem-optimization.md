@@ -4,7 +4,7 @@ categories: go
 toc: true
 ---
 
-![](https://gitee.com/dongzerun/images/raw/master/img/tikv-flame.png)
+![](/images/tikv-flame.png)
 
 本文是在上家的 case, 以前很多人在公开大会上拿该案例做分享，所以觉得有印象的同学勿喷，虽然冷饭，但是原创
 
@@ -12,20 +12,20 @@ toc: true
 
 不要犹豫，要么是 timeout 设置不合理，比如只设置了单次 socket timeout, 并没有设置 circuit breaker 外层超时。参考 [你真的了解 timeout 嘛](https://mp.weixin.qq.com/s/GihBqN5m0vGxxvFdHWRc7Q, "你真的了解 timeout 嘛")
 
-![](https://gitee.com/dongzerun/images/raw/master/img/trick-or-treat.jpg)
+![](/images/trick-or-treat.jpg)
 
 还有一种情况就是 GC 在捣乱，我们知道 Go GC 使用三色标记法，在 GC 压力大时用户态 goroutine 是要 assit 协助标记对象的，同时 GC STW 时间如果非常高，那么业务看起来 latency 就会得比 timeout 大很多
 
 ### 毛刺
 该服务使用 go1.7, 需要加载海量的机器学习词表，标准的 Go 大内存服务，优化前表现为 latency 非常高
 
-![](https://gitee.com/dongzerun/images/raw/master/img/io-big-latency.jpg)
+![](/images/io-big-latency.jpg)
 
-![](https://gitee.com/dongzerun/images/raw/master/img/io-big-latency2.jpg)
+![](/images/io-big-latency2.jpg)
 
 可以看到最大的己经到了 2s
 
-![](https://gitee.com/dongzerun/images/raw/master/img/go-gc-pausens.jpg)
+![](/images/go-gc-pausens.jpg)
 
 同时查看 GC PauseNS 也非常可怕，基本接近 1s, 服务处理不可用状态
 
@@ -35,20 +35,20 @@ toc: true
 go tool pprof bin/dupsdc http://127.0.0.1:6060/debug/pprof/profile
 ```
 
-![](https://gitee.com/dongzerun/images/raw/master/img/cpu-pprof-gc-now.jpg)
+![](/images/cpu-pprof-gc-now.jpg)
 
 可以看到 `runtime.greyobject`, `runtime.mallocgc`, `runtime.heapBitsForObject`, `runtime.scanobject`, `runtime.memmove` 就些与 GC 相关的占据了 CPU 消耗的 TOP 6
 ```shell
 go tool pprof -inuse_objects http://127.0.0.1:6060/debug/pprof/heap
 ```
 
-![](https://gitee.com/dongzerun/images/raw/master/img/inuse-objects-gc.jpg)
+![](/images/inuse-objects-gc.jpg)
 
 再查看下常驻对像个数，发现 1kw 常驻内存对像(现在来看很小了，不多)，这些都是词表加载的小对像
 ### 优化对像
 词表主要使用两种类型，`map[int64][]float32` 和 `map[string]int`
 
-![](https://gitee.com/dongzerun/images/raw/master/img/three-biaoji.gif)
+![](/images/three-biaoji.gif)
 
 让我们看一下三色标记，本质是递归扫描所有的指针类型，遍历确定有没有被引用
 
@@ -60,15 +60,15 @@ go tool pprof -inuse_objects http://127.0.0.1:6060/debug/pprof/heap
 ### 优化效果
 上线后优化效果很明显
 
-![](https://gitee.com/dongzerun/images/raw/master/img/after-optimize-inuse-objects.jpg)
+![](/images/after-optimize-inuse-objects.jpg)
 
 可以看到，常驻内存对像由 1kw 降低到 200w
 
-![](https://gitee.com/dongzerun/images/raw/master/img/after-optimize-cpu-pprof.jpg)
+![](/images/after-optimize-cpu-pprof.jpg)
 
 同时 cpu pprof 也能看到，排名第一的是 syscall, GC 相关的己经降低很多
 
-![](https://gitee.com/dongzerun/images/raw/master/img/after-optimize-io-latency.jpg)
+![](/images/after-optimize-io-latency.jpg)
 
 查看 Grafana 外围 IO latency 降低非常明显。整体优化效果不错
 ### 例外
@@ -121,4 +121,4 @@ Go 在吞吐量方面优化非常显著。还是那句话，本文只做为 GC �
 
 关于`性能优化`大家有什么看法，欢迎留言一起讨论，大牛多留言 ^_^
 
-![](https://gitee.com/dongzerun/images/raw/master/img/dongzerun-weixin-code.png)
+![](/images/dongzerun-weixin-code.png)

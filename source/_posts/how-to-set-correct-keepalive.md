@@ -4,7 +4,7 @@ categories: go
 toc: true
 ---
 
-![](https://gitee.com/dongzerun/images/raw/master/img/enable-keep-alive-apache.jpg)
+![](/images/enable-keep-alive-apache.jpg)
 
 本文来自十年老粉`小六子`投稿，内容比较干，大家平时肯定也会遇到
 
@@ -203,7 +203,7 @@ Server侧输出:
 ### 抓包分析
 结果有些出乎意料，因为是在本地进行代码复现的，所以去看下抓包分析结果。
 
-![](https://gitee.com/dongzerun/images/raw/master/img/tcpdump-jiangge.jpg)s
+![](/images/tcpdump-jiangge.jpg)s
 
 - `Client` 使用的基于`TCP`层面的`Keep-alive`协议，针对的是整条`TCP`连接
 - `Server` 侧明显是基于应用层协议做的判断
@@ -296,4 +296,4 @@ func (c *conn) serve(ctx context.Context) {
 
 关于 `http 超时` 大家有什么看法，欢迎留言一起讨论，大牛多留言 ^_^
 
-![](https://gitee.com/dongzerun/images/raw/master/img/dongzerun-weixin-code.png)
+![](/images/dongzerun-weixin-code.png)

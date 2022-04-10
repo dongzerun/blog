@@ -3,7 +3,7 @@ title: 剖析智能指针 Rc Weak 与 Arc
 categories: rust
 toc: true
 ---
-![](https://gitee.com/dongzerun/images/raw/master/img/rust-cover.jpeg)
+![](/images/rust-cover.jpeg)
 
 我们知道 rust ownership 有[三原则](https://mp.weixin.qq.com/s/3apdPoiPWmDDU7jMRIJkrA):
 
@@ -305,5 +305,5 @@ pub fn downgrade(this: &Self) -> Weak<T> {
 
 关于 `Rc/Arc 智能指针` 大家有什么看法，欢迎留言一起讨论，如果理解有误，请大家指正 ^_^
 
-![](https://gitee.com/dongzerun/images/raw/master/img/dongzerun-weixin-code.png)
+![](/images/dongzerun-weixin-code.png)
 

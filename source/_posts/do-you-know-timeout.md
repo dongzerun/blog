@@ -19,7 +19,7 @@ toc: true
 ### Latency
 业界都用 P99 分位来衡量服务的 latency, 即使这样如果 QPS 非常高，另外 1% 的请求也会出现 long tail. 再来看几个不同侧重点的概念：
 
-![](https://gitee.com/dongzerun/images/raw/master/img/timeout.jpg)
+![](/images/timeout.jpg)
 
 Server Side P99 完全统计的是 server handler 处理时间
 
@@ -38,7 +38,7 @@ Client P99 =  client framework 时间 + client 内核处理时间 + 网络传输
 
 除了自己造轮子，主流的有 [zipkin](https://zipkin.io/, "zipkin"), [opentelemetry](https://opentelemetry.io/docs/concepts/distributions/, "opentelemetry")
 
-![](https://gitee.com/dongzerun/images/raw/master/img/zipkin-tracing.jpg)
+![](/images/zipkin-tracing.jpg)
 
 ### 底层实现
 定时器这块业务早有标准实现：`小顶堆`, `红黑树` 和 `时间轮`. 感兴趣的同学可以搜索相关文章
@@ -86,7 +86,7 @@ func init() {
 
 另外服务端也要设置 timeout, 以防把服务端压跨，请参考 [So you want to expose Go on the Internet](https://blog.cloudflare.com/exposing-go-on-the-internet/, "So you want to expose Go on the Internet")
 
-![](https://gitee.com/dongzerun/images/raw/master/img/http-timeout.jpg)
+![](/images/http-timeout.jpg)
 
 ```go
   srv := &http.Server{
@@ -129,4 +129,4 @@ A: 要做到 fast fail, 一定得有降级 (circuit breaker 熔断)措施，否�
 ### 小结
 这次分享就这些，以后面还会分享更多的内容，如果感兴趣，可以关注并点击左下角的`分享`转发哦(:
 
-![](https://gitee.com/dongzerun/images/raw/master/img/dongzerun-weixin-code.png)
+![](/images/dongzerun-weixin-code.png)

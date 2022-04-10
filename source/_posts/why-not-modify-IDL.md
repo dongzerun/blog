@@ -4,7 +4,7 @@ categories: go
 toc: true
 ---
 
-![](https://gitee.com/dongzerun/images/raw/master/img/idl-cover.png)
+![](/images/idl-cover.png)
 
 前几年业界流行使用 [thrift](https://github.com/apache/thrift), 比如滴滴。这几年 [grpc](https://github.com/grpc/grpc-go) 越来越流行，很多开源框架也集成了，我司大部分服务都同时开放 grpc 和 http 接口
 
@@ -226,4 +226,4 @@ IDL 修改还有很多测试用例，感兴趣的可以多玩玩，比如结构�
 
 关于 `IDL 兼容问题` 大家有什么看法，欢迎留言一起讨论，大牛多留言 ^_^
 
-![](https://gitee.com/dongzerun/images/raw/master/img/dongzerun-weixin-code.png)
+![](/images/dongzerun-weixin-code.png)

@@ -4,7 +4,7 @@ categories: rust
 toc: true
 ---
 
-![](https://gitee.com/dongzerun/images/raw/master/img/rust-cover.png)
+![](/images/rust-cover.png)
 
 上周文享了[闭包你了解底层实现嘛？](https://mp.weixin.qq.com/s/c1DyCemMTRfPjCsA5BBDTg) 我们要记住，**闭包是由函数和与其相关的引用环境组合而成的实体**
 
@@ -202,7 +202,7 @@ s is 董泽润的技术笔记
 ```
 当然可以看起来没有问题，`FnMut` 告诉函数 `test` 这是一个会修改变量的闭包，那么传进来的闭包不修改当然也没问题
 
-![](https://gitee.com/dongzerun/images/raw/master/img/fn-context.png)
+![](/images/fn-context.png)
 
 上图比较出名，由于有继承关系，实现 `Fn` 可用于 `FnMut` 和 `FnOnce` 参数，实现 `FnMut` 可用于 `FnOnce` 参数
 
@@ -295,4 +295,4 @@ help: to force the closure to take ownership of `s` (and any other referenced va
 
 关于 `闭包` 大家有什么看法，欢迎留言一起讨论，大牛多留言 ^_^
 
-![](https://gitee.com/dongzerun/images/raw/master/img/dongzerun-weixin-code.png)
+![](/images/dongzerun-weixin-code.png)

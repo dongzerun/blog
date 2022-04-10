@@ -14,7 +14,7 @@ toc: true
 
 另外说一个暴露年龄的病毒：`熊猫烧香` :)
 
-![](https://gitee.com/dongzerun/images/raw/master/img/%E5%B0%8F%E7%99%BDredis1.1.jpg)
+![](/images/%E5%B0%8F%E7%99%BDredis1.1.jpg)
 
 ### redis 漏洞
 历史上 redis 就暴露过很多漏洞，感兴趣的可以关注下 **CVE-2015-8080** lua 沙盒逃逸、**CVE-2015-4335** eval 执行 lua 字节码、**CVE-2016-8339** 缓冲区溢出漏洞、**CVE-2013-7458** 读取 rediscli_history.
@@ -23,7 +23,7 @@ toc: true
 
 特别是当 redis 是用 root 身份运行的，就算有 auth 认证，也很容易被暴力破解。本篇分享的就是利用这一特点获得被攻击 redis 服务器的登录权限，即未授权登录漏洞。
 
-![](https://gitee.com/dongzerun/images/raw/master/img/%E5%B0%8F%E7%99%BDredis1.2.jpg)
+![](/images/%E5%B0%8F%E7%99%BDredis1.2.jpg)
 
 上图是相关的思维导图，原理就是修改 redis 配置，间接修改 ssh 相关文件或是 crontab 文件。
 ```
@@ -110,7 +110,7 @@ OK
 OK
 ```
 
-![](https://gitee.com/dongzerun/images/raw/master/img/%E5%B0%8F%E7%99%BDredis1.3.jpg)
+![](/images/%E5%B0%8F%E7%99%BDredis1.3.jpg)
 
 可以看到 redis 端的 crontab 己经生成，过一会，client 端 nc 就会收到来自 redis 服务器的 shell
 ```
@@ -152,6 +152,6 @@ Feb  5 13:47:01 ubuntu2 cron[754]: (root) INSECURE MODE (mode 0600 expected) (cr
 
 关于 `redis` 大家有什么看法，欢迎留言一起讨论，大牛多留言 ^_^
 
-![](https://gitee.com/dongzerun/images/raw/master/img/dongzerun-weixin-code.png)
+![](/images/dongzerun-weixin-code.png)
 
 

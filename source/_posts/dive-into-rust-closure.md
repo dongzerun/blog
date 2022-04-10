@@ -4,13 +4,13 @@ categories: rust
 toc: true
 ---
 
-![](https://gitee.com/dongzerun/images/raw/master/img/rust-cover.jpg)
+![](/images/rust-cover.jpg)
 
 在计算机中，闭包 `Closure`, 又称词法闭包 `Lexical Closure` 或函数闭包 `function closures`, 是**引用了自由变量的函数**
 
 被引用的自由变量将和函数一同存在，即使已经离开了创造它的环境也不例外。换句话说，**闭包是由函数和与其相关的引用环境组合而成的实体**
 
-![](https://gitee.com/dongzerun/images/raw/master/img/closer-fn-variables.png)
+![](/images/closer-fn-variables.png)
 
 ### 普通函数
 函数在 Rust 里是一等公民 (fist class), 即可以做为参数和返回值，和内置类型地位一样。但 Rust 函数也有一些限制，比如不支持默认参数，不支持变参，不允许多值返回等等
@@ -142,7 +142,7 @@ $2 = 0x7fffffffe0e4
 ```
 通过返汇编，我们可以看到，**rust 里匿名函数其实和闭包是一样的结构，底层实现一样的**。
 
-![](https://gitee.com/dongzerun/images/raw/master/img/closure-struct.png)
+![](/images/closure-struct.png)
 
 闭包 `a` 是空结构体，所以大小 0 字节，而 `b` 拥有一个指针字段，64位平台上当然是 8 字节，`c` 就是 16 字节长度。打印地址，可以看到捕获的就是对应 v1, v2
 
@@ -231,4 +231,4 @@ fn main(){
 
 关于 `泛型` 大家有什么看法，欢迎留言一起讨论，大牛多留言 ^_^
 
-![](https://gitee.com/dongzerun/images/raw/master/img/dongzerun-weixin-code.png)
+![](/images/dongzerun-weixin-code.png)

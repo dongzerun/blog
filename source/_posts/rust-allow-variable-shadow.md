@@ -124,4 +124,4 @@ fix 很简单，那怎么提前发现这个问题呢？除了程序员要多写�
 
 今天的分享就这些，如果对大家有所帮助和启发，请大家帮忙点击`再看`，`点赞`，`分享` 三连。关于 variable shadowing 大家有什么看法，欢迎留言一起讨论 ^_^
 
-![](https://gitee.com/dongzerun/images/raw/master/img/dongzerun-weixin-code.png)
+![](/images/dongzerun-weixin-code.png)

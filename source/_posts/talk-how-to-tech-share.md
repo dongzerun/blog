@@ -4,7 +4,7 @@ categories: share
 toc: true
 ---
 
-![](https://gitee.com/dongzerun/images/raw/master/img/zuimei-teacher.jpeg)
+![](/images/zuimei-teacher.jpeg)
 
 最近在组织公司内部的技术分享，简单的聊聊如何写 tech slide, 以及现场 present 时要注意的地方，希望对大家能有帮助。当然个人理解，难免有错误，欢迎讨论。
 
@@ -70,4 +70,4 @@ Slide 和 Blog 区别还是很大的，Slide 篇幅受限于分享时间，一�
 ### 小结
 这次分享就这些，以后面还会分享更多的内容，如果感兴趣，可以关注并点击左下角的`分享`转发哦(:
 
-![](https://gitee.com/dongzerun/images/raw/master/img/dongzerun-weixin-code.png)
+![](/images/dongzerun-weixin-code.png)

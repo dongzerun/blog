@@ -4,7 +4,7 @@ categories: rust
 toc: true
 ---
 
-![](https://gitee.com/dongzerun/images/raw/master/img/go-vs-rust.jpg)
+![](/images/go-vs-rust.jpg)
 
 本篇尽量深入浅出，不想学 `Rust` 的也可以读读，多种语言对比很有很大的收获，`Go` 再好也不是所有场景通吃^_^
 
@@ -13,7 +13,7 @@ toc: true
 * 同一时间，一个值只能有一个所有者 owner
 * 当所有者 owner 离开作用域，对应的值会自动 dropped
 
-![](https://gitee.com/dongzerun/images/raw/master/img/func-take-ownership.jpg)
+![](/images/func-take-ownership.jpg)
 
 `hello` 是在堆上分配的字符串，owner 是 `s`, 当以参数传给函数 `takes_ownership` 后，所有权 Move 给了 `some_string`. 也就是当函数返回时 `hello` 字符串会被 dropped，所以 main 第 4 行如果打印会报错，因为己经 Move 走了
 
@@ -206,4 +206,4 @@ note: this function consumes the receiver `self` by taking ownership of it, whic
 
 关于 `Rust 引用借用` 大家有什么看法，欢迎留言一起讨论，大牛多留言，下一篇分享生命周期 ^_^
 
-![](https://gitee.com/dongzerun/images/raw/master/img/dongzerun-weixin-code.png)
+![](/images/dongzerun-weixin-code.png)

@@ -4,14 +4,14 @@ categories: linux
 toc: true
 ---
 
-![](https://gitee.com/dongzerun/images/raw/master/img/taejune-kim-a-warm-day-taejune-kim.jpg)
+![](/images/taejune-kim-a-warm-day-taejune-kim.jpg)
 
 前几天帮同事看问题时，意外的发现了时钟源影响性能的 case, 比较典型，记录一下。网上也有人遇到过，参考虾皮的[[Go] Time.Now函数CPU使用率异常](https://mp.weixin.qq.com/s/D2ulLXDFpi0FwVRwSQJ0nA, "[Go] Time.Now函数CPU使用率异常") 和 [Two frequently used system calls are ~77% slower on AWS EC2](https://blog.packagecloud.io/eng/2017/03/08/system-calls-are-much-slower-on-ec2/, "Two frequently used system calls are ~77% slower on AWS EC2")
 
 本质都是 fallback 系统调用，所以慢了，但是触发这个条件的原因不太一样。我最后的分析也可能理解有误，欢迎一起讨论并指正。
 
 ### 现象
-![](https://gitee.com/dongzerun/images/raw/master/img/perf-clock-gettime.jpg)
+![](/images/perf-clock-gettime.jpg)
 
 上图是 perf 性能图，可以发现 `__clock_gettime` 系统调用相关的耗时最多，非常诡异。
 ```go
@@ -100,7 +100,7 @@ noswitch:
 ### 系统调用
 首先说，大家都知道系统调用慢，涉及陷入内核，上下文开销。但是到底多慢呢？
 
-![](https://gitee.com/dongzerun/images/raw/master/img/syscall-benchmark.jpg)
+![](/images/syscall-benchmark.jpg)
 
 上图是系统调用和普通函数调用的开销对比，参考 [Measurements of system call performance and overhead](http://arkanis.de/weblog/2017-01-05-measurements-of-system-call-performance-and-overhead, Measurements of system call performance and overhead), 可以看到，`getpid` 走系统调用的开销远大于通过 vdso 的方式，而且也远大于普通函数调用。
 
@@ -545,4 +545,4 @@ GRUB_CMDLINE_LINUX="console=tty0 crashkernel=auto console=ttyS0,115200 clocksour
 ### 小结
 这次分享就这些，以后面还会分享更多的内容，如果感兴趣，可以关注并点击左下角的`分享`转发哦(:
 
-![](https://gitee.com/dongzerun/images/raw/master/img/dongzerun-weixin-code.png)
+![](/images/dongzerun-weixin-code.png)
